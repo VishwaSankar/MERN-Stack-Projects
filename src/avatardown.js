@@ -99,13 +99,13 @@ export default function AccountMenu() {
         <MenuItem onClick={handleClose}>
           
         <Avatar src={currentUser?.img} ></Avatar>
-        Username:<Link to="/dashboard" style={{textDecoration:"none"}}> {currentUser?.username}</Link>
+        <Link to="/dashboard" style={{textDecoration:"none",color:"white"}}> Username:{currentUser?.username}</Link>
           
         </MenuItem>
         <MenuItem onClick={handleClose}>
           
           <Avatar /> 
-          <Link to="/dashboard">Profile</Link>
+          <Link to="/dashboard" style={{textDecoration:"none",color:"white"}}>Profile:</Link>
           
         </MenuItem>
         <MenuItem onClick={handleClose}>

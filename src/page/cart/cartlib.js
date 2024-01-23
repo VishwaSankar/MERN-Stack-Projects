@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Alert, Box, CircularProgress } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { Centre1 } from "../gamecontent/maingc";
@@ -35,7 +35,11 @@ const Cartlib = () => {
 
   return (
     <div>
-      {isLoading?("loading"):error?("error"):(
+     {isLoading ? (
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <CircularProgress />
+  </div>
+):error? <Alert severity="error">Kindly login to access these features!</Alert>:(
       <Box flex={8}>
         <Typography
           sx={{

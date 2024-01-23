@@ -17,13 +17,13 @@ const Profile = () => {
             Hello Gamer!
           </Typography>
           <div style={{ display: "flex", justifyContent: "space-evenly", width: "1000px" }}>
-            <img src={currentUser.img} alt="Profile" style={{ height:"400px", padding: '30px', width: '500px', borderRadius: '50%' }} />
+            <img src={currentUser?.img} alt="Profile" style={{ height:"400px", padding: '30px', width: '500px', borderRadius: '50%' }} />
 
             <div style={{ padding: '50px', height: "380px", fontWeight: "bold", display: "flex", flexDirection: "column" }}>
-              <p>NAME: {currentUser.username}</p>
-              <p>EMAIL: {currentUser.email}</p>
-              <p>COUNTRY: {currentUser.country}</p>
-              <p>MOBILE NUMBER: {currentUser.phone}</p>
+              <p>NAME: {currentUser?.username}</p>
+              <p>EMAIL: {currentUser?.email}</p>
+              <p>COUNTRY: {currentUser?.country}</p>
+              <p>MOBILE NUMBER: {currentUser?.phone}</p>
             </div>
           </div>
 

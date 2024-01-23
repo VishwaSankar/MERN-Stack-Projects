@@ -1,5 +1,6 @@
 import { TypographyInheritContext } from "@mui/joy/Typography/Typography";
 import {
+  Alert,
   Avatar,
   Box,
   Card,
@@ -11,6 +12,7 @@ import {
   ListItemText,
   Paper,
   Rating,
+  Snackbar,
   Tooltip,
   Typography,
   Zoom,
@@ -31,7 +33,20 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { useQueryClient } from '@tanstack/react-query'
 import newRequest from "../../utils/newRequest";
 export const Centre1 = () => {
- 
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   
   
   const { isLoading, error, data } = useQuery({
@@ -124,7 +139,7 @@ export const Centre1 = () => {
     
     
     const handlecart=(e)=>{
-      e.preventDefault()
+     
       const title=data.title;
       const name=data.name;
       const price=data.price;
@@ -143,6 +158,7 @@ export const Centre1 = () => {
     return (
       <>
         <Box flex={6}>
+       
           <Typography
             sx={{
               fontFamily: "monospace",
@@ -378,12 +394,28 @@ export const Centre1 = () => {
                     {/* <Link to={`/cart`}
                 state={{ from: "gamecontent", name:data , }}
                 style={{ textDecoration: "none" }}> */}
+                 <Snackbar
+                    open={open}
+                    autoHideDuration={6000}
+                    onClose={handleClose}
+                  >
+                    <Alert
+                      onClose={handleClose}
+                      severity="success"
+                      sx={{ width: "100%", height: "50%" }}
+                    >
+                      {data.name} is added to cart!
+                    </Alert>
+                  </Snackbar>
                     <Button
                       variant="contained"
                       size="medium"
                       color="error"
                       sx={{ width: "100%" }}
-                     onClick={handlecart}
+                      onClick={() => {
+                        handlecart();
+                        handleClick();
+                      }}
                     >
                       ADD TO CART
                     </Button>

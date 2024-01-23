@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Typography, Paper, List, ListItem, ListItemText, CardMedia, Card } from '@mui/material';
+import Myimg from './My pic.png'
 const About = () => {
   return (
     <div>
@@ -10,7 +11,7 @@ const About = () => {
             component="img"
             height="200"
             alt="Vishwa S"
-            src="https://cdn3.whatculture.com/images/2018/10/8a9f130b5a4f310b-600x338.jpg"
+            src={Myimg}
             sx={{ borderRadius: '50%', }}  // Replace with the URL or path to your image
           />
         </Card>

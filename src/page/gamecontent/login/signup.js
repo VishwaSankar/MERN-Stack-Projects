@@ -71,7 +71,8 @@ const Signup = () => {
         ...user,
        img:url
       })
-      navigate("/")
+      alert("Account Created Successfully. Now Login to Proceed!")
+      navigate("/login")
      }catch(err){
       console.log(err);
      }
