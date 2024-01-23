@@ -37,8 +37,8 @@ function SlidingImageComponent() {
   ];
 
   return (
-    <>
-      <Box display='flex' justifyContent='center'>
+    <div >
+      <Box display='flex' justifyContent='center' backgroundImage="https://wallpapers.com/images/hd/hd-cool-artwork-gaming-controller-axl2gk69puhtw5pp.webp">
         <Carousel
           style={{
             width: "90%",
@@ -61,7 +61,7 @@ function SlidingImageComponent() {
           ))}
         </Carousel>
       </Box>
-    </>
+    </div>
   );
 }
 

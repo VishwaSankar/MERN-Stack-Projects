@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel, CarouselCaption } from "react-bootstrap";
-import { Container, Tooltip, Zoom } from "@mui/material";
+import { Container, Divider, Tooltip, Zoom } from "@mui/material";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -63,13 +63,16 @@ function Trendslider() {
     paddingBottom: "5px",
   });
   return (
+    <div id="trending">
+      <br/>
     <Box>
       <Typography
-        sx={{ fontFamily: "monospace", fontSize: "40px", paddingTop: "10px" }}
+        sx={{ fontFamily: "monospace", fontSize: "40px", paddingTop: "60px" }}
       >
         Hot & Trending
       </Typography>
-      <Stack direction="row" paddingBottom="10px">
+      <Divider color="gray" flexItem/>
+      <Stack direction="row" paddingBottom="10px" paddingTop="10px">
         <Carousel
           style={{
             paddingTop: "5px",
@@ -94,6 +97,7 @@ function Trendslider() {
                   src={randata1.slideimg2}
                   alt="First slide"
                   width="100%"
+                  style={{ opacity: 2 }} 
                 />
                 <CarouselCaption
                   style={{
@@ -102,9 +106,10 @@ function Trendslider() {
                     background:
                       "linear-gradient(83deg, #FF1010 42%, #FFFFFF 66%)",
                     webkitBackgroundClip: " text",
-                    fontSize: "25px",
+                    fontSize: "35px",
                     fontFamily: "monospace",
                     webkitTextFillColor: "transparent",
+                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // Adjust the shadow properties as needed
                   }}
                 >
                   {randata1.name} <br></br>
@@ -119,6 +124,7 @@ function Trendslider() {
                     fontSize: "15px",
                     fontFamily: "monospace",
                     webkitTextFillColor: "transparent",
+                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                   }}
                 >
                   {randata1.Dev}
@@ -138,6 +144,7 @@ function Trendslider() {
                   className="d-block w-100"
                   src={randata2.slideimg2}
                   alt="Second slide"
+                  style={{ opacity: 2 }} 
                 />
                 <CarouselCaption
                   style={{
@@ -146,9 +153,10 @@ function Trendslider() {
                     background:
                       "linear-gradient(83deg, #FF1010 42%, #FFFFFF 66%)",
                     webkitBackgroundClip: " text",
-                    fontSize: "25px",
+                    fontSize: "35px",
                     fontFamily: "monospace",
                     webkitTextFillColor: "transparent",
+                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // Adjust the shadow properties as needed
                   }}
                 >
                   {randata2.name} <br></br>
@@ -163,6 +171,7 @@ function Trendslider() {
                     fontSize: "15px",
                     fontFamily: "monospace",
                     webkitTextFillColor: "transparent",
+                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                   }}
                 >
                   {randata2.Dev}
@@ -181,6 +190,7 @@ function Trendslider() {
                   className="d-block w-100"
                   src={randata3.slideimg4}
                   alt="Third slide"
+                  style={{ opacity: 2 }} 
                 />
                 <CarouselCaption
                   style={{
@@ -189,9 +199,10 @@ function Trendslider() {
                     background:
                       "linear-gradient(83deg, #FF1010 42%, #FFFFFF 66%)",
                     webkitBackgroundClip: " text",
-                    fontSize: "25px",
+                    fontSize: "35px",
                     fontFamily: "monospace",
                     webkitTextFillColor: "transparent",
+                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // Adjust the shadow properties as needed
                   }}
                 >
                   {randata3.name} <br></br>
@@ -206,6 +217,7 @@ function Trendslider() {
                     fontSize: "15px",
                     fontFamily: "monospace",
                     webkitTextFillColor: "transparent",
+                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                   }}
                 >
                   {randata3.Dev}
@@ -224,6 +236,7 @@ function Trendslider() {
                   className="d-block w-100"
                   src={randata4.slideimg2}
                   alt="Fourth Slide"
+                  style={{ opacity: 2 }} 
                 />
                 <CarouselCaption
                   style={{
@@ -232,9 +245,10 @@ function Trendslider() {
                     background:
                       "linear-gradient(83deg, #FF1010 42%, #FFFFFF 66%)",
                     webkitBackgroundClip: " text",
-                    fontSize: "25px",
+                    fontSize: "35px",
                     fontFamily: "monospace",
                     webkitTextFillColor: "transparent",
+                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // Adjust the shadow properties as needed
                   }}
                 >
                   {randata4.name} <br></br>
@@ -249,6 +263,7 @@ function Trendslider() {
                     fontSize: "15px",
                     fontFamily: "monospace",
                     webkitTextFillColor: "transparent",
+                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                   }}
                 >
                   {randata4.Dev}
@@ -329,6 +344,7 @@ function Trendslider() {
         </Stack>
       </Stack>
     </Box>
+    </div>
   );
 }
 

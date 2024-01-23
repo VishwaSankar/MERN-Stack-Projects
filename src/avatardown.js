@@ -11,6 +11,9 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
+import { Link } from 'react-router-dom';
+import newRequest from './utils/newRequest';
+import { Paper } from '@mui/material';
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -21,22 +24,42 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const currentUser=JSON.parse(localStorage.getItem("currentUser"))
+  const handlelogout=async()=>{
+    try{
+      await newRequest.post("/auth/logout")
+      localStorage.setItem("currentUser",null)
+
+    }
+    catch(err){
+      console.log(err);
+    }
+    window.location.reload();
+  }
+
+
+
   return (
     <React.Fragment>
-      <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-        <Tooltip title="Account settings">
-          <IconButton
-            onClick={handleClick}
-            size="small"
-            sx={{ ml: 2 }}
-            aria-controls={open ? 'account-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-          >
-            <Avatar src="https://i.pravatar.cc/300" ></Avatar>
-          </IconButton>
-        </Tooltip>
-      </Box>
+      {/* <Paper variant='contained' square={false} elevation="6"> */}
+  <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', textAlign: 'center' }}>
+    <Tooltip title="Account settings">
+      <IconButton
+        onClick={handleClick}
+        size="small"
+        sx={{ ml: 2 }}
+        aria-controls={open ? 'account-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+      >
+        <Typography marginRight="10px" fontFamily="monospace">
+          {currentUser?.username}
+        </Typography>
+        <Avatar src={currentUser?.img}></Avatar>
+      </IconButton>
+    </Tooltip>
+  </Box>
+{/* </Paper> */}
       <Menu
         anchorEl={anchorEl}
         id="account-menu"
@@ -72,8 +95,18 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
+
         <MenuItem onClick={handleClose}>
-          <Avatar /> Profile
+          
+        <Avatar src={currentUser?.img} ></Avatar>
+        Username:<Link to="/dashboard" style={{textDecoration:"none"}}> {currentUser?.username}</Link>
+          
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          
+          <Avatar /> 
+          <Link to="/dashboard">Profile</Link>
+          
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Avatar /> My account
@@ -91,7 +124,7 @@ export default function AccountMenu() {
           </ListItemIcon>
           Settings
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handlelogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

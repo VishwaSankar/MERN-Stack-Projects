@@ -2,6 +2,7 @@
 export const gamesdata1 = [
   {
     //1 rdr 2 data
+    id:"0",
     title: "Red Dead Redemption 2",
     name: "Red Dead Redemption 2",
     about:
@@ -10,7 +11,7 @@ export const gamesdata1 = [
     price: 2500,
     Rating: 4.9,
     Dev: "ROCKSTAR GAMES",
-    Genre: "Action & Adventure",
+    Genre: "Action",
     Releasedate: "5 Dec, 2019",
     trend:"yes",
     sale:"yes",
@@ -77,7 +78,7 @@ export const gamesdata1 = [
     Genre: "Action",
     trend:"yes",
     Trailer: "https://www.youtube.com/embed/RQK_40a0XUY?rel=0",
-    img1: "https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/ss_1351cb512d008f7e47fc50b74197f4f8eb6f3419.600x338.jpg?t=1695758729",
+    img1: "https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/header.jpg?t=1695758729",
     type: "single-player",
     slideimg1:
       "https://www.digitaltrends.com/wp-content/uploads/2022/01/god-of-war-pc-performance-1.jpg?fit=2560%2C1440&p=1",
@@ -134,7 +135,7 @@ export const gamesdata1 = [
     saleval:"70% off",
     Rating: 4.5,
     Dev: "CD PROJEKT RED",
-    Genre: "Action & Adventure",
+    Genre: "RPG",
     Releasedate: "18 May, 2015",
     Trailer: "https://www.youtube.com/embed/53MyR_Z3i1w?rel=0 ",
     img1: "https://cdn.akamai.steamstatic.com/steam/apps/292030/header.jpg?t=1693590732",
@@ -196,7 +197,7 @@ export const gamesdata1 = [
     saleval:"20% off",
     trend:"yes",
     Dev: "INSOMNIAC GAMES",
-    Genre: "Action & Adventure",
+    Genre: "Action",
     Releasedate: "12 Aug, 2022",
     Trailer: "https://www.youtube.com/embed/mrT5q5xXb7Y?rel=0",
     img1: "https://cdn.cloudflare.steamstatic.com/steam/apps/1817070/header.jpg?t=1700663145",
@@ -254,7 +255,7 @@ export const gamesdata1 = [
     price: 4000,
     Rating: 4,
     Dev: "NAUGHTY DOG",
-    Genre: "Action & Adventure",
+    Genre: "Action",
     Releasedate: "28 Mar, 2023",
     Trailer: "https://www.youtube.com/embed/CxVyuE2Nn_w?rel=0",
     img1: "https://cdn.cloudflare.steamstatic.com/steam/apps/1888930/header.jpg?t=1697567304",
@@ -317,7 +318,7 @@ export const gamesdata1 = [
     sale:"yes",
     saleval:"80% off",
     Dev: "ROCKSTAR GAMES",
-    Genre: "Action & Adventure",
+    Genre: "Action",
     Releasedate: "14 Apr, 2015",
     Trailer: "https://www.youtube.com/embed/QkkoHAzjnUs?rel=0",
     img1: "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg?t=1695060909",
@@ -378,7 +379,7 @@ export const gamesdata1 = [
     trend:"yes",
     Rating: 4,
     Dev: "CD PROJEKT RED",
-    Genre: "Action & Adventure",
+    Genre: "Action",
     Releasedate: "10 Dec, 2020",
     Trailer: "https://www.youtube.com/embed/HB1ExFCHlB0?rel=0",
     img1: "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header_alt_assets_5.jpg?t=1702306332",
@@ -498,7 +499,7 @@ export const gamesdata1 = [
     sale:"yes",
     saleval:"45% off",
     Dev: "NAUGHTY DOG",
-    Genre: "Action & Adventure",
+    Genre: "Action",
     Releasedate: "19 Oct, 2022",
     Trailer:"https://www.youtube.com/embed/xeMA3O9pfiY?rel=0" ,
     img1: "https://cdn.cloudflare.steamstatic.com/steam/apps/1659420/header.jpg?t=1702933952",
@@ -605,7 +606,7 @@ export const gamesdata1 = [
     tagtext3: "Beautiful Open World",
   },
   {
-    //alanwake2
+    //alan wake 2
     title: "alan wake 2",
     name: "Alan Wake 2",
     about:
@@ -616,7 +617,8 @@ export const gamesdata1 = [
     Rating: 4.6,
     Dev: "REMEDY ENTERTAINMENT",
     Genre: "Horror",
-    Releasedate: "24 Oct  , 2023",
+    Releasedate: "24 Oct , 2023",
+   
     Trailer: "https://www.youtube.com/embed/dlQ3FeNu5Yw?rel=0" ,
     img1: "https://cdn.wccftech.com/wp-content/uploads/2023/10/Alan-Wake-II.jpg",
     type: "single-player",
@@ -663,5 +665,633 @@ export const gamesdata1 = [
     tagvid3: "https://www.youtube.com/embed/RyXtIn0RV-M?rel=0&autoplay=1" ,
     tagtext3: "Highly Recommended",
   },
+  {
+    //spiderman2 
+    title: "spider man 2",
+    name: "Marvel's Spider-Man 2",
+    about:
+      "Marvel's Spider-Man 2 is a 2023 action-adventure game developed by Insomniac Games and published by Sony Interactive Entertainment. It is based on the Marvel Comics character Spider-Man, and features a narrative inspired by its long-running comic book mythology which is also derived from various adaptations in other media. It is the third entry in the Marvel's Spider-Man series, acting as a sequel to Marvel's Spider-Man (2018) and a follow-up to Marvel's Spider-Man: Miles Morales (2020). In this installment, Peter Parker and Miles Morales struggle to navigate the next steps in their personal lives while combating several new threats, including a private militia led by Kraven the Hunter, who transforms New York City into a hunting ground for super-powered individuals; and the extraterrestrial Venom symbiote, which bonds itself to Parker and negatively influences him, threatening to destroy his personal relationships.",
+    platform: "Playstation 5",
+    trend:"yes",
+    price: "4999",
+    Rating: 4.9,
+    Dev: "INSOMNIAC GAMES",
+    Genre: "Acton",
+    Releasedate: "20 Oct , 2023",
+    Trailer: "https://www.youtube.com/embed/nq1M_Wc4FIc?rel=0" ,
+    img1: "https://assetsio.reedpopcdn.com/F1hV2aHWcAI2QJy.jpg?width=1200&height=1200&fit=bounds&quality=70&format=jpg&auto=webp",
+    type: "single-player",
+
+    slideimg1:
+      "https://img.phonandroid.com/2023/06/spiderman2-2-1200x675.webp",
+    slidealt1: "First slide",
+    slideimg2:
+      "https://a.storyblok.com/f/178900/3840x2160/8233523a88/msm2_preview_blacksuit_emf_4k_legal_2023.jpg",
+    slidealt2: "second slide",
+    slideimg3:
+      "https://live.staticflickr.com/65535/52923139721_da79f531d0_h.jpg",
+    slidealt3: "Third slide",
+    slideimg4:
+      "https://img2.storyblok.com//f/84002/1920x1080/724ba322f7/msm2_story_duo_4k_legal_2023.jpg",
+    slidealt4: "Fourth slide",
+    slideimg5:
+      "https://i.ytimg.com/vi/RzmardR5hww/maxresdefault.jpg",
+    slidealt5: "fifth slide",
+
+    //requirements of spiderman2
+    os_m: " Windows 10 (64 bit)",
+    cpu_m: "Core i5-7600K / AMD Ryzen 5 1600",
+    ram_m: "16 GB RAM",
+    gpu_m: "GeForce RTX 2060 / Radeon RX 6600 6GB",
+    storage_m: "90 GB available space ",
+    sound_m: "DirectX 12",
+
+    os_r: " Windows 10 (64 bit)",
+    cpu_r: "Core i7-11700K / Ryzen 7 3700X",
+    ram_r: " 16 GB RAM",
+    gpu_r: "GeForce RTX 3060 / Radeon RX 6600 XT 8GB",
+    storage_r: "90 GB available space",
+    sound_r: "DirectX 12",
+
+    //tags spiderman 2
+
+    tagvid1:"https://www.youtube.com/embed/ayeQ3CTLlMU?autoplay=1&rel=0" ,
+    tagtext1:"Beautiful Open World",
+
+    tagvid2:"https://www.youtube.com/embed/g3UrVn5s4bQ?autoplay=1&rel=0",
+    tagtext2: "Amazing Story Line",
+
+    tagvid3: "https://www.youtube.com/embed/lgUW2eHkYc8?autoplay=1&rel=0",
+    tagtext3: "Best Traversal",
+  },
+  
+    {
+      //ac mirage
+      title: "ac mirage",
+      name: "Assassin's Creed Mirage",
+      about:
+        "Assassin's Creed Mirage is a 2023 action-adventure game developed by Ubisoft Bordeaux and published by Ubisoft. The game is the thirteenth major installment in the Assassin's Creed series and the successor to 2020's Assassin's Creed Valhalla. While its historical timeframe precedes that of Valhalla, its modern-day framing story succeeds Valhalla's own. Set in 9th-century Baghdad during the Islamic Golden Age—in particular during the Anarchy at Samarra—the story follows Basim Ibn Ishaq (a character first introduced in Valhalla), a street thief who joins the Hidden Ones to fight for peace and liberty, against the Order of the Ancients,[b] who desire peace through control. The main narrative focuses on Basim's internal struggle between his duties as a Hidden One and his desire to uncover his mysterious past.",
+      platform: "PC & Consoles",
+      trend:"yes",
+      price: "2599",
+      Rating: 4.1,
+      sale:"yes",
+      saleval:"20% off",
+      Dev: "UBISOFT",
+      Genre: "RPG",
+      Releasedate: "20 Oct , 2023",
+      Trailer: "https://www.youtube.com/embed/IRNOoOYVn80?rel=0",
+      img1: "https://st1.techlusive.in/wp-content/uploads/2023/08/Assassins-Creed-Mirage-1.jpg",
+      type: "single-player",
+  
+      slideimg1:
+        "https://assetsio.reedpopcdn.com/Assassins-Creed-Mirage-official-screenshots-1.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+      slidealt1: "First slide",
+      slideimg2:
+        "https://i.ytimg.com/vi/zMlA1mpbuUU/maxresdefault.jpg",
+      slidealt2: "second slide",
+      slideimg3:
+        "https://i.ytimg.com/vi/crxk5Ja4NqM/maxresdefault.jpg",
+      slidealt3: "Third slide",
+      slideimg4:
+        "https://i.ytimg.com/vi/TB9YDYcsB-g/maxresdefault.jpg",
+      slidealt4: "Fourth slide",
+      slideimg5:
+        "https://cdn.mos.cms.futurecdn.net/STwxY4MuqyL5aKfRhhQeec.jpg",
+      slidealt5: "fifth slide",
+  
+      //requirements of ac mirage
+      os_m: "Windows 10, Windows 11 (64-bit versions)",
+      cpu_m: "AMD Ryzen 5 1600 @ 3.2 GHz, Intel Core i7-4790K @ 4.4 GHz, or better",
+      ram_m: "8 GB RAM",
+      gpu_m: "AMD Radeon RX 570 (4 GB), Intel Arc A380 (6 GB), NVIDIA GeForce GTX 1060 (6 GB), or better",
+      storage_m: "40 GB available space ",
+      sound_m: "DirectX 12",
+  
+      os_r: " Windows 10, Windows 11 (64-bit versions)",
+      cpu_r: "AMD Ryzen 5 3600 @ 4.2 GHz, Intel Core i7-8700K @ 4.6 GHz, or better",
+      ram_r: " 16 GB RAM",
+      gpu_r: "AMD Radeon RX 5600 XT (6 GB), Intel Arc A750 (8 GB), NVIDIA GeForce GTX 1660 Ti (6 GB), or better",
+      storage_r: "40 GB available space",
+      sound_r: "DirectX 12",
+  
+      //tags ac mirage
+  
+      tagvid1:"https://www.youtube.com/embed/Ok1auyjvIrw?muted=1&autoplay=1&rel=0" ,
+      tagtext1:"Beautiful Open World",
+  
+      tagvid2:"https://www.youtube.com/embed/o6bXCDJH4og?muted=1&autoplay=1&rel=0",
+      tagtext2: "Amazing Combat",
+  
+      tagvid3: "https://www.youtube.com/embed/rylZ_xlq5MA?muted=1&autoplay=1&rel=0",
+      tagtext3: "Fun to play",
+    },
+    {
+      //elden ring
+      title: "Elden Ring",
+      name: "Elden Ring",
+      about:
+        "THE NEW FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between. A vast world where open fields with a variety of situations and huge dungeons with complex and three-dimensional designs are seamlessly connected. As you explore, the joy of discovering unknown and overwhelming threats await you, leading to a high sense of accomplishment. In addition to customizing the appearance of your character, you can freely combine the weapons, armor, and magic that you equip. You can develop your character according to your play style, such as increasing your muscle strength to become a strong warrior, or mastering magic. A multilayered story told in fragments. An epic drama in which the various thoughts of the characters intersect in the Lands Between.",
+      platform: "PC & Consoles",
+      trend:"yes",
+      price: "2900",
+      Rating: 4.8,
+      sale:"yes",
+      saleval:"10% off",
+      Dev: "FROMSOFTWARE",
+      Genre: "RPG",
+      Releasedate: "25 Feb, 2022",
+      Trailer: "https://www.youtube.com/embed/AKXiKBnzpBQ?rel=0",
+      img1: "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg?t=1700164457",
+      type: "single-player",
+  
+      slideimg1:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/ss_ae44317e3bd07b7690b4d62cc5d0d1df30367a91.1920x1080.jpg?t=1700164457",
+      slidealt1: "First slide",
+      slideimg2:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/ss_e80a907c2c43337e53316c71555c3c3035a1343e.1920x1080.jpg?t=1700164457",
+      slidealt2: "second slide",
+      slideimg3:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/ss_3aec1455923ef49f4e777c2a94dbcd0256f77eb0.1920x1080.jpg?t=1700164457",
+      slidealt3: "Third slide",
+      slideimg4:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/ss_e87a3e84890ab19f8995566e62762d5f8ed39315.1920x1080.jpg?t=1700164457",
+      slidealt4: "Fourth slide",
+      slideimg5:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/ss_c372274833ae6e5437b952fa1979430546a43ad9.1920x1080.jpg?t=1700164457",
+      slidealt5: "fifth slide",
+  
+      //requirements of elden ring
+      os_m: " Windows 10 64 Bit",
+      cpu_m:
+        "INTEL CORE I5-8400 or AMD RYZEN 3 3300X",
+      ram_m: "12 GB RAM",
+      gpu_m: "NVIDIA GEFORCE GTX 1060 3 GB or AMD RADEON RX 580 4 GB",
+      storage_m: "60 GB available space ",
+      sound_m: "DirectX 12",
+  
+      os_r: " Windows 10 64 Bit",
+      cpu_r:
+        "INTEL CORE I7-8700K or AMD RYZEN 5 3600X",
+      ram_r: "16GB DDR",
+      gpu_r: "NVIDIA GEFORCE GTX 1070 8 GB or AMD RADEON RX VEGA 56 8 GB",
+      storage_r: "60 GB available space",
+      sound_r: "DirectX 12",
+  
+      //tags elden ring
+  
+      tagvid1:"https://www.youtube.com/embed/D_iqjI2p7F4?rel=0&autoplay=1",
+      tagtext1: "Great Boss Fights",
+  
+      tagvid2:"https://www.youtube.com/embed/bxlmP2biXqk?rel=0&autoplay=1" ,
+      tagtext2: "Highly Recommended",
+  
+      tagvid3: "https://www.youtube.com/embed/GRc2rqDDBGk?rel=0&autoplay=1",
+      tagtext3: "Best RPG",
+    },
+    {
+      //cod
+      title: "Call of Duty: Warzone",
+      name: "Call of Duty: Warzone",
+      about:
+        "Welcome to Call of Duty®: Warzone™, the massive free-to-play combat arena which now features the brand-new map, Urzikstan. Turn the Heat Up , Prepare to take the battle to a new metropolis in the all-new Urzikstan map, the new big Battle Royale map that is sure to excite veterans and newcomers alike. Discover supply boxes and complete contracts to build your arsenal and gain a tactical advantage. This Game may contain content not appropriate for all ages, or may not be appropriate for viewing at work: Frequent Violence or Gore, General Mature Content",
+      platform: "PC & Consoles",
+    
+      price: "2599",
+      Rating: 3.2,
+      sale:"yes",
+      saleval:"40% off",
+      Dev: "Activision",
+      Genre: "FPS",
+      Releasedate: "16 Nov, 2022",
+      Trailer: "https://www.youtube.com/embed/77Ypn79NFWg?rel=0",
+      img1: "https://cdn.cloudflare.steamstatic.com/steam/apps/1962663/header.jpg?t=1703006730",
+      type: "multiplayer",
+  
+      slideimg1:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1962663/ss_5a0ec0a81182d8cbecfa4ae350482734371316fc.600x338.jpg?t=1703006730",
+      slidealt1: "First slide",
+      slideimg2:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1962663/ss_c08f162a6db38c06097eec896583a2f7f6a679ae.600x338.jpg?t=1703006730",
+      slidealt2: "second slide",
+      slideimg3:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1962663/ss_c8592d9eac63f07711e387304bbdf959a6ef2ff5.600x338.jpg?t=1703006730",
+      slidealt3: "Third slide",
+      slideimg4:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1962663/ss_74788da7a2e09c0eb3b36aa0b4611e8384a214b6.600x338.jpg?t=1703006730",
+      slidealt4: "Fourth slide",
+      slideimg5:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1962663/ss_6cd19f37f9ee086c710fe7ff1456e9c715f64f5f.600x338.jpg?t=1703006730",
+      slidealt5: "fifth slide",
+  
+      //requirements of cod
+      os_m: " Windows 10 64 Bit",
+      cpu_m:
+        "Intel® Core™ i3-6100 / Core™ i5-2500K or AMD Ryzen™ 3 1200",
+      ram_m: "8 GB RAM",
+      gpu_m: "NVIDIA® GeForce® GTX 960 or AMD Radeon™ RX 470 - DirectX 12.0 compatible system",
+      storage_m: "125 GB available space ",
+      sound_m: "DirectX 12",
+  
+      os_r: " Windows 10 64 Bit",
+      cpu_r:
+        " Intel® Core™ i5-6600K / Core™ i7-4770 or AMD Ryzen™ 5 1400",
+      ram_r: "12GB DDR",
+      gpu_r: " NVIDIA® GeForce® GTX 1060 or AMD Radeon™ RX 580 - DirectX 12.0 compatible system",
+      storage_r: "125 GB available space",
+      sound_r: "DirectX 12",
+  
+      //tags cod
+  
+      tagvid1: "https://www.youtube.com/embed/lwte22MevVA?rel=0&autoplay=1",
+      tagtext1: "First Person Shooter",
+  
+      tagvid2: "https://www.youtube.com/embed/HIlEir3XSDM?rel=0&autoplay=1",
+      tagtext2: "Competitive",
+  
+      tagvid3:"https://www.youtube.com/embed/JdA8oyMmVzY?rel=0&autoplay=1",
+      tagtext3: "Esports Title",
+    },
+    {
+      //apex
+      title: "Apex Legends",
+      name: "Apex Legends",
+      about:
+        "Apex Legends is the award-winning, free-to-play Hero Shooter from Respawn Entertainment. Master an ever-growing roster of legendary characters with powerful abilities, and experience strategic squad play and innovative gameplay in the next evolution of Hero Shooter and Battle Royale. Conquer with character in Apex Legends, a free-to-play* Hero shooter where legendary characters with powerful abilities team up to battle for fame & fortune on the fringes of the Frontier. Master an ever-growing roster of diverse Legends, deep-tactical squad play, and bold, new innovations that go beyond the Battle Royale experience — all within a rugged world where anything goes. Welcome to the next evolution of Hero Shooter.",
+      platform: "PC & Consoles",
+      trend:"yes",
+      price: "FREE",
+      Rating: 3.5,
+      Dev: "ELECTRONICS ART",
+      Genre: "FPS",
+      Releasedate: "5 Nov, 2020",
+      Trailer: "https://www.youtube.com/embed/Ix-6DAcuPcg?rel=0",
+      img1: "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1702571386",
+      type: "Multiplayer",
+  
+      slideimg1:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/ss_b93d8cc8bf24eda3abe66a03b7a66c750458bebb.600x338.jpg?t=1702571386",
+      slidealt1: "First slide",
+      slideimg2:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/ss_189df0d9b986fe9a44c389472e4f468c8bc3b615.600x338.jpg?t=1702571386",
+      slidealt2: "second slide",
+      slideimg3:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/ss_5000ddd4ad7adb81dd4ecae8329d55be893695d6.600x338.jpg?t=1702571386",
+      slidealt3: "Third slide",
+      slideimg4:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/ss_e1f0cc66a7ec0687c028a25834614b810e9b56a5.600x338.jpg?t=1702571386",
+      slidealt4: "Fourth slide",
+      slideimg5:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/ss_cb0f3ced72e159a01f1410b17a1e4e61f9a8ed6b.600x338.jpg?t=1702571386",
+      slidealt5: "fifth slide",
+  
+      //requirements of apex
+      os_m: " Windows 10 64 Bit",
+      cpu_m:
+        " AMD FX 4350 or Equivalent, Intel Core i3 6300 or Equivalent",
+      ram_m: "6 GB RAM",
+      gpu_m: "AMD Radeon™ HD 7730, NVIDIA GeForce® GT 640",
+      storage_m: "75 GB available space ",
+      sound_m: "DirectX 11",
+  
+      os_r: " Windows 10 64 Bit",
+      cpu_r:
+        "Ryzen 5 CPU or Equivalent",
+      ram_r: "8GB DDR",
+      gpu_r: "AMD Radeon™ R9 290, NVIDIA GeForce® GTX 970",
+      storage_r: "75 GB available space",
+      sound_r: "DirectX 12",
+  
+      //tags apex
+  
+      tagvid1: "https://www.youtube.com/embed/ipS_tf0aLHw?rel=0&autoplay=1&muted=1",
+      tagtext1: "First Person Shooter",
+  
+      tagvid2: "https://www.youtube.com/embed/SryyyTRUFdA?rel=0&autoplay=1&muted=1",
+      tagtext2: "Highly Recommended",
+  
+      tagvid3: "https://www.youtube.com/embed/6sxQQkIY7iA?rel=0&autoplay=1&muted=1" ,
+      tagtext3: "Esports Title",
+    },
+
+
+
+
+
+    {
+      //mortal kombat
+      title: "Mortal Kombat 1",
+      name: "Mortal Kombat 1",
+      about:
+        "Discover a reborn Mortal Kombat™ Universe created by the Fire God Liu Kang. Mortal Kombat™ 1 ushers in a new era of the iconic franchise with a new fighting system, game modes, and fatalities! Reflecting Fire God Liu Kang’s vision of perfection, Mortal Kombat 1’s brand new universe is familiar, yet radically altered. Invasions is a dynamic single player campaign with a variety of distinct challenges. With built in progression and RPG mechanics, mixed with MK1’s incredible fighting action, Invasions provides deep, and engaging challenges, and a ton of rewards along the way. Kameos dramatically enhance every fight, assisting teammates with their own Special Moves, Throws and defensive Breakers. This Game may contain content not appropriate for all ages, or may not be appropriate for viewing at work: Frequent Violence or Gore, General Mature Content",
+      platform: "PC & Consoles",
+      trend:"yes",
+      price: "3999",
+      Rating: 4,
+      sale:"yes",
+      saleval:"15% off",
+      Dev: "WARNER BROS",
+      Genre: "Fighting",
+      Releasedate: "19 Sep, 2023",
+      Trailer:"https://www.youtube.com/embed/UZ6eFEjFfJ0?rel=0" ,
+      img1: "https://cdn.cloudflare.steamstatic.com/steam/apps/1971870/header.jpg?t=1702393935",
+      type: "single-player",
+  
+      slideimg1:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1971870/ss_2509da69bd12d209bd0ef9eed13f25cfa551f8e5.1920x1080.jpg?t=1702393935",
+      slidealt1: "First slide",
+      slideimg2:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1971870/ss_535045ba6877519d2d95a3c89716a72c174eab7e.1920x1080.jpg?t=1702393935",
+      slidealt2: "second slide",
+      slideimg3:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1971870/ss_92b72baad7981e46d9717991510ff28b04186b23.1920x1080.jpg?t=1702393935",
+      slidealt3: "Third slide",
+      slideimg4:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1971870/ss_49224d656949ca50dc48d4256e7e7d4a10eb1855.1920x1080.jpg?t=1702393935",
+      slidealt4: "Fourth slide",
+      slideimg5:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1971870/ss_829f376e1954eab50fc366bbcbc5a1cee5777116.1920x1080.jpg?t=1702393935",
+      slidealt5: "fifth slide",
+  
+      //requirements of MK1
+      os_m: " Windows 10 64 Bit",
+      cpu_m:
+        "Intel® Core™ i5-6600 | AMD Ryzen™ 3 3100 or Ryzen™ 5 2600",
+      ram_m: "8 GB RAM",
+      gpu_m: "Nvidia GeForce® GTX 980 or AMD Radeon™ RX 470 or Intel® Arc™ A750",
+      storage_m: "100 GB available space ",
+      sound_m: "DirectX 12",
+  
+      os_r: " Windows 10 64 Bit",
+      cpu_r:
+        " Intel® Core™ i5-8400 | AMD Ryzen™ 5 3600X",
+      ram_r: "8GB DDR",
+      gpu_r: " Nvidia GeForce® GTX 1080 Ti or AMD Radeon™ RX 5700 XT or Intel® Arc™ A770",
+      storage_r: "100 GB available space",
+      sound_r: "DirectX 12",
+  
+      //tags MK1
+  
+      tagvid1:"https://www.youtube.com/embed/0HEE78L_CnA?rel=0&autoplay=1&muted=1",
+      tagtext1: "Great Fights",
+  
+      tagvid2:"https://www.youtube.com/embed/HP1P9zDodqc?rel=0&autoplay=1&muted=1" ,
+      tagtext2: "Great Characters",
+  
+      tagvid3: "https://www.youtube.com/embed/K6UA5KpoOUg?rel=0&autoplay=1&muted=1" ,
+      tagtext3: "Bloody Gore!",
+    },
+    {
+      //forza horizon
+      title: "Forza Horizon 5",
+      name: "Forza Horizon 5",
+      about:
+        "Your Ultimate Horizon Adventure awaits! Explore the vibrant open world landscapes of Mexico with limitless, fun driving action in the world’s greatest cars. Conquer the rugged Sierra Nueva in the ultimate Horizon Rally experience. Requires Forza Horizon 5 game, expansion sold separately. Lead breathtaking expeditions across the vibrant and ever-evolving open world landscapes of Mexico with limitless, fun driving action in hundreds of the world’s greatest cars. Explore a world of striking contrast and beauty. Discover living deserts, lush jungles, historic cities, hidden ruins, pristine beaches, vast canyons and a towering snow-capped volcano.",
+      platform: "PC & Consoles",
+      trend:"yes",
+      price: "1789",
+      Rating: 4.2,
+      sale:"yes",
+      saleval:"25% off",
+      Dev: "PLAYGROUND GAMES",
+      Genre: "Racing",
+      Releasedate: "9 Nov, 2021",
+      Trailer:"https://www.youtube.com/embed/Rv7xLt5yNsM?rel=0"  ,
+      img1: "https://cdn.akamai.steamstatic.com/steam/apps/1551360/header.jpg?t=1702576144",
+      type: "multi-player",
+  
+      slideimg1:
+        "https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_cf56e25a0290556ba83229eb0ab370d10be0407c.600x338.jpg?t=1702576144",
+      slidealt1: "First slide",
+      slideimg2:
+        "https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_00f0090174380eeaf8753bd3d1028b6772c3aebf.600x338.jpg?t=1702576144",
+      slidealt2: "second slide",
+      slideimg3:
+        "https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_b65236b365315ebb6da6114ce42cd74b59cab3c8.600x338.jpg?t=1702576144",
+      slidealt3: "Third slide",
+      slideimg4:
+        "https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_0bc32360d32b21abdf889422385cd753862dd73e.600x338.jpg?t=1702576144",
+      slidealt4: "Fourth slide",
+      slideimg5:
+        "https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_1da0673f82eccc3c9d222237dec40e36bf10eef3.600x338.jpg?t=1702576144",
+      slidealt5: "fifth slide",
+  
+      //requirements of forza horizon
+      os_m: " Windows 10 64 Bit",
+      cpu_m:
+        " Intel i5-4460 or AMD Ryzen 3 1200",
+      ram_m: "8 GB RAM",
+      gpu_m: " NVidia GTX 970 OR AMD RX 470",
+      storage_m: "100 GB available space ",
+      sound_m: "DirectX 12",
+  
+      os_r: " Windows 10 64 Bit",
+      cpu_r:
+        "Intel i5-8400 or AMD Ryzen 5 1500X",
+      ram_r: "16GB DDR",
+      gpu_r: " NVidia GTX 1070 OR AMD RX 590",
+      storage_r: "100 GB available space",
+      sound_r: "DirectX 12",
+  
+      //tags forza horizon
+  
+      tagvid1:"https://www.youtube.com/embed/G1pmzovk2tI?rel=0&autoplay=1&muted=1",
+      tagtext1: "Great Open World",
+  
+      tagvid2:"https://www.youtube.com/embed/5051Qex1-m4?rel=0&autoplay=1&muted=1"  ,
+      tagtext2: "Competitive Racing",
+  
+      tagvid3:"https://www.youtube.com/embed/e3e2RHrKFeo?rel=0&autoplay=1&muted=1" ,
+      tagtext3: "Beautiful Openworld !",
+    },
+    {
+      //nfs MW
+      title: "Need for Speed™ Most Wanted",
+      name: "Need for Speed™ Most Wanted",
+      about:
+        "The open-world action in Need for Speed Most Wanted gives you the freedom to drive your way. Hit jumps and shortcuts, switch cars, lie low or head for terrain that plays to your vehicle’s unique strengths. Fight your way past cops and rivals using skill, high-end car tech and tons of nitrous. Experience nonstop action — No menus, no lobbies, and no restrictions — just intense competition. Race, battle, crash, and explore at your own pace with a massive variety of things to do (and rewards to collect) throughout the open world. Prove you’re the best — Pick a car & jump into a nonstop playlist of competitive events in online mode. Influence the playlist by voting with your car. Jostle for position on the starting line. Cross the finish line and turn around to take out oncoming rivals.",
+      platform: "PC & Consoles",
+      
+      price: "150",
+      Rating: 4,
+      sale:"yes",
+      saleval:"80% off",
+      Dev: "ELECTRONIC ARTSW",
+      Genre: "Racing",
+      Releasedate: "30 Oct, 2012",
+      Trailer:"https://www.youtube.com/embed/Rv7xLt5yNsM?rel=0"  ,
+      img1: "https://cdn.akamai.steamstatic.com/steam/apps/1262560/header.jpg?t=1605151411",
+      type: "multi-player",
+  
+      slideimg1:
+        "https://cdn.akamai.steamstatic.com/steam/apps/1262560/ss_4292ba4d468883bb13c619330229047f9ab197f7.600x338.jpg?t=1605151411",
+      slidealt1: "First slide",
+      slideimg2:
+        "https://cdn.akamai.steamstatic.com/steam/apps/1262560/ss_9793d77282f58a643e6b5ecbf082e83638a8edc3.600x338.jpg?t=1605151411",
+      slidealt2: "second slide",
+      slideimg3:
+        "https://cdn.akamai.steamstatic.com/steam/apps/1262560/ss_6ebd31716756d81452bca2eda264987a330cd1f9.600x338.jpg?t=1605151411",
+      slidealt3: "Third slide",
+      slideimg4:
+        "https://cdn.akamai.steamstatic.com/steam/apps/1262560/ss_82adddc724f99986dafdfe5f713de45e12a4ece5.600x338.jpg?t=1605151411",
+      slidealt4: "Fourth slide",
+      slideimg5:
+        "https://cdn.akamai.steamstatic.com/steam/apps/1262560/ss_6b9c3c8cdf2a6a1c03a9525e3e09b1db23643cac.600x338.jpg?t=1605151411",
+      slidealt5: "fifth slide",
+  
+      //requirements of nfs mw
+      os_m: "Windows Vista (Service Pack 2 and all available windows updates) 32-bit",
+      cpu_m:
+        " 2 GHz Dual Core (Core 2 Duo 2.4 GHZ or Althon X2 2.7 GHz)",
+      ram_m: "2 GB RAM",
+      gpu_m: " NVidia GTX 970 OR AMD RX 470",
+      storage_m: "20 GB available space ",
+      sound_m: "DirectX 10",
+  
+      os_r: " Windows 7 (Service Pack 1 and all available windows updates) 64-bit",
+      cpu_r:
+        " Quad-Core CPU",
+      ram_r: "4 GB DDR",
+      gpu_r: "DirectX 11 compatible with 1024 MB RAM (NVIDIA GEFORCE GTX 560 or ATI RADEON 6950)",
+      storage_r: "20 GB available space",
+      sound_r: "DirectX 10",
+  
+      //tags nfs mw
+  
+      tagvid1:"https://www.youtube.com/embed/yDJqhPgrIZE" ,
+      tagtext1: "Great Open World",
+  
+      tagvid2:"https://www.youtube.com/embed/uEmHp6paUc8" ,
+      tagtext2: "Competitive Racing",
+  
+      tagvid3:"https://www.youtube.com/embed/IsbfxPdPXtU" ,
+      tagtext3: "Beautiful Openworld!",
+    },
+    {
+      //gta 6
+      title: "Grand Theft Auto VI",
+      name: "Grand Theft Auto VI",
+      tag:"Coming soon",
+      about:
+        "Grand Theft Auto VI is an upcoming action-adventure game in development by Rockstar Games. It is due to be the eighth main Grand Theft Auto game, following Grand Theft Auto V (2013), and the sixteenth entry overall. Set within the fictional open world state of Leonida (based on Florida) and its Miami-inspired Vice City, the story is expected to follow criminal duo Lucia and her male partner. Following years of speculation and anticipation, Rockstar confirmed in February 2022 that the game was in development. That September, footage from unfinished versions was leaked online in what journalists described as one of the biggest leaks in the history of the video game industry. The game was formally revealed in December 2023 and is scheduled to be released in 2025 for the PlayStation 5 and Xbox Series X/S.",
+      platform: "PC & Consoles",
+      
+      price: "TBA",
+      Rating: "TBA",
+      Dev: "ROCKSTAR GAMES",
+      Genre: "Action",
+      Releasedate: "2025",
+      Trailer:"https://www.youtube.com/embed/QdBZY2fkU-0?rel=0"   ,
+      img1: "https://www.gta-xtreme.com/wp-content/uploads/2023/12/GTA-6-Trailer-Screenshot-Image-47-1536x864.jpg",
+      type: "single-player",
+  
+      slideimg1:
+        "https://pbs.twimg.com/media/GAik4I6WYAEpWL7.jpg",
+      slidealt1: "First slide",
+      slideimg2:
+        "https://www.gta-xtreme.com/wp-content/uploads/2023/12/GTA-6-Trailer-Screenshot-Image-11-1536x864.jpg",
+      slidealt2: "second slide",
+      slideimg3:
+        "https://www.gta-xtreme.com/wp-content/uploads/2023/12/GTA-6-Trailer-Screenshot-Image-28-1536x864.jpg",
+      slidealt3: "Third slide",
+      slideimg4:
+        "https://www.gta-xtreme.com/wp-content/uploads/2023/12/GTA-6-Trailer-Screenshot-Image-3-1536x864.jpg",
+      slidealt4: "Fourth slide",
+      slideimg5:
+        "https://www.gta-xtreme.com/wp-content/uploads/2023/12/GTA-6-Trailer-Screenshot-Image-27-1536x864.jpg",
+      slidealt5: "fifth slide",
+  
+      //requirements of nfs mw
+      os_m: "TBA",
+      cpu_m:
+        "TBA",
+      ram_m: "TBA",
+      gpu_m: "TBA",
+      storage_m: "TBA ",
+      sound_m: "TBA",
+  
+      os_r: "TBA",
+      cpu_r:
+        "TBA",
+      ram_r: "TBA",
+      gpu_r: "TBA",
+      storage_r: "TBA",
+      sound_r: "TBA",
+  
+      //tags nfs mw
+  
+      tagvid1:"" ,
+      tagtext1: "",
+  
+      tagvid2:"" ,
+      tagtext2: "",
+  
+      tagvid3:"" ,
+      tagtext3: "",
+    },
+    {
+      //starwars jedi survivor
+      title: "STAR WARS Jedi: Survivor™",
+      name: "STAR WARS Jedi: Survivor™",
+      about:
+        "The story of Cal Kestis continues in Star Wars Jedi: Survivor™, a third-person galaxy-spanning action-adventure game from Respawn Entertainment and Lucasfilm Games. This narratively driven, single-player title picks up 5 years after the events of Star Wars Jedi: Fallen Order™ and follows Cal’s increasingly desperate fight as the galaxy descends further into darkness. Pushed to the edges of the galaxy by the Empire, Cal will find himself surrounded by threats new and familiar. As one of the last surviving Jedi Knights, Cal is driven to make a stand during the galaxy’s darkest times — but how far is he willing to go to protect himself, his crew, and the legacy of the Jedi Order?",
+      platform: "PC & Consoles",
+      
+      price: "1700",
+      Rating: 3.2,
+      sale:"yes",
+      saleval:"40% off",
+      Dev: "ELECTRONIC ARTS",
+      Genre: "Action",
+      Releasedate: "28 Apr, 2023",
+      Trailer:"https://www.youtube.com/embed/_F6YBwIPzmk?rel=0" ,
+      img1: "https://cdn.cloudflare.steamstatic.com/steam/apps/1774580/header.jpg?t=1701206599",
+      type: "single-player",
+  
+      slideimg1:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1774580/ss_e589d6bb347c13f7226f0b294fd12880ced8d171.600x338.jpg?t=1701206599",
+      slidealt1: "First slide",
+      slideimg2:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1774580/ss_6f2e72d773e4280f3a4860c7fb1d62e72932a9b0.600x338.jpg?t=1701206599",
+      slidealt2: "second slide",
+      slideimg3:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1774580/ss_f14055548a6c51171036ebb3d00ddf5c97e5bd05.600x338.jpg?t=1701206599",
+      slidealt3: "Third slide",
+      slideimg4:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1774580/ss_bb84b8cbf9294c6166819c3d3328c4efbdb9d46c.600x338.jpg?t=1701206599",
+      slidealt4: "Fourth slide",
+      slideimg5:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1774580/ss_72e3265e1983d759d133338b613df2010cf5eb56.600x338.jpg?t=1701206599",
+      slidealt5: "fifth slide",
+  
+      //requirements of starwars jedi survivor
+      os_m: " Windows 10 64-bit",
+      cpu_m:
+        " 4 core / 8 threads | Intel Core i7-7700 | Ryzen 5 1400",
+      ram_m: "8 GB RAM",
+      gpu_m: "8GB VRAM | GTX 1070 | Radeon RX 580",
+      storage_m: "155 GB available space ",
+      sound_m: "DirectX 12",
+  
+      os_r: "  Windows 10 64-bit",
+      cpu_r:
+        " 4 core / 8 threads | Intel Core i5 11600K | Ryzen 5 5600X",
+      ram_r: "16 GB DDR",
+      gpu_r: "8GB VRAM | RTX2070 | RX 6700 XT",
+      storage_r: "155 GB available space",
+      sound_r: "DirectX 12",
+  
+      //tags starwars jedi survivor
+  
+      tagvid1:"https://www.youtube.com/embed/zd8XsE3rDmw" ,
+      tagtext1: "Fun to play!",
+  
+      tagvid2:"https://www.youtube.com/embed/7riut0SwChY" ,
+      tagtext2: "Great Combat",
+  
+      tagvid3:"https://www.youtube.com/embed/jEQIWSuz2GU",
+      tagtext3: "Amazing Story!",
+    },
+
 
 ];

@@ -18,9 +18,24 @@ import CardsRow from "./onsale";
 import YourComponent from "./page/gamecontent/api.js";
 import React from "react";
 import SignIn from "./page/gamecontent/login/login.js";
-import { Nav } from "react-bootstrap";
-
-
+import Checkout from "./page/checkout/Checkout.js";
+import Cart from "./page/cart/cart.js";
+import Genre from "./page/Genre/Genre.js";
+import "./App.css";
+import { Favourites } from "./favourites.js";
+import { Library } from "./Library.js";
+import Dashboard from "./page/admin dashboard/dashboard.js";
+import About from "./page/about.js";
+import Signup from "./page/gamecontent/login/signup.js";
+import { Logout } from "@mui/icons-material";
+import Profile from "./page/admin dashboard/profile.js";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 // function App(){
 //   return (<>
   
@@ -38,6 +53,7 @@ import { Nav } from "react-bootstrap";
 
 
 function App() {
+  const queryClient = new QueryClient()
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   const theme = React.useMemo(
@@ -52,8 +68,10 @@ function App() {
       const Root=()=>{
         return(
           <>
+        <QueryClientProvider client={queryClient}>
         <Navbar/>
         <Outlet/>
+        </QueryClientProvider>
         </>
         )
         
@@ -72,10 +90,58 @@ function App() {
         
         },
         {
+          path:"/store",
+          element:<Store/>
+        },
+        {
           path:"/content",
           element:<Gamecontent/>
-        }
-      ],
+        },
+        {
+          path:'/login',
+          element:<SignIn/>
+        },
+        {
+          path:'/logout',
+          element:<Logout/>
+        },
+        {
+          path:'/signup',
+          element:<Signup/>
+        },
+        {
+          path:'/checkout',
+          element:<Checkout/>
+        },
+       {
+        path:'/cart',
+        element:<Cart/>
+       },
+       {
+        path:'/genre',
+        element:<Genre/>
+       },
+       {
+        path:'/fav',
+        element:<Favourites/>
+       },
+       {
+        path:'/library',
+        element:<Library/>
+       },
+       {
+        path:'/dashboard',
+        element:<Dashboard/>
+       },
+       {
+        path:'/about',
+        element:<About/>
+       },
+       {
+        path:'/profile',
+        element:<Profile/>
+       }
+       ],
     },
   ]);
   
@@ -87,7 +153,7 @@ function App() {
      <ThemeProvider theme={theme}>
      <CssBaseline />
      <RouterProvider router={router} />
-    {/* <Box > */}
+      {/* <Box > */}
       {/* <SignIn/> */}
       {/* <Store/> */}
       {/* <Gamecontent/> */}

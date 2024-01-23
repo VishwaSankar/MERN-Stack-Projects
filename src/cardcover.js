@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Divider, Typography } from '@mui/material';
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 
@@ -20,9 +20,10 @@ const VideoCarousel = () => {
   ];
 
   return (
-    <>
-        <Typography sx={{ fontFamily: "monospace", fontSize: "40px", paddingTop: "20px" }}>Watch Trending Trailers!</Typography>
-
+    <div id='trailer'>
+      <br></br>
+        <Typography sx={{ fontFamily: "monospace", fontSize: "40px", paddingTop: "50px" }}>Watch Trending Trailers!</Typography>
+        <Divider color="gray" flexItem/>
     <Carousel
           style={{
             paddingTop: "5px",
@@ -30,6 +31,7 @@ const VideoCarousel = () => {
             height: "500px",
             overflow: "hidden",
             cursor: "pointer",
+            paddingTop: "10px", 
             paddingBottom: "20px",
             paddingRight: "5px",
           }}
@@ -49,7 +51,7 @@ const VideoCarousel = () => {
             </Carousel.Item>
           ))}
         </Carousel>
-        </>
+        </div>
   );
 };
 

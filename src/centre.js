@@ -10,30 +10,37 @@ import Topseller from "./topsellers";
 import Slider from "./slider-centre.js";
 import MediaCover from "./cardcover";
 import Trendslider from "./Trending";
-import SlidingCard, {Onsale }from "./onsale";
+import SlidingCard, { Onsale } from "./onsale";
 import FullWidthTabs from "./onsale";
 import CardsRow from "./onsale";
 import VideoCarousel from "./cardcover";
+import SearchBar from "./2navbar.js";
+import Storegenre from "./storegenreslides.js";
+import Holidayspotlight from "./holidayspotlight.js";
 export const Centre = () => {
- 
   return (
-    <Box flex={3}>
-      <Typography
-        sx={{
-          fontFamily: "monospace",
-          fontSize: "40px",
-          paddingTop: "20px",
-          paddingBottom: "-20px",
-        }}
-      >
-        Featured & Recommended
-      </Typography>
-      <Slider />
-      <Topseller />
-      <VideoCarousel/>
-      <Trendslider />
-      <CardsRow/>
-    </Box>
+    <>
+      <Box flex={2}>
+        <SearchBar />
+        <Typography
+          sx={{
+            fontFamily: "monospace",
+            fontSize: "40px",
+            paddingTop: "20px",
+            paddingBottom: "-20px",
+          }}
+        >
+          Featured & Recommended
+        </Typography>
+        <Slider />
+        <Topseller />
+        <VideoCarousel />
+        <Trendslider />
+        <Storegenre />
+        <CardsRow />
+
+        {/* <Holidayspotlight/> */}
+      </Box>
+    </>
   );
 };
-

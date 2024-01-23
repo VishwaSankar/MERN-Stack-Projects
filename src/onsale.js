@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Grid, Divider } from '@mui/material';
 import { Link, Outlet} from 'react-router-dom';
 import axios from 'axios';
 import { gamesdata1 } from './page/gamecontent/Datagames';
+
 const CardsRow = () => {
   const [clickedCard, setClickedCard] = useState(null);
 
@@ -52,8 +53,10 @@ const CardsRow = () => {
   
 
   return (
-    <>
-    <Typography sx={{ fontFamily: "monospace", fontSize: "40px", paddingTop: "10px" }}>On Sale & Discounts</Typography>
+    <div id="sale">
+      <br/>
+    <Typography sx={{ fontFamily: "monospace", fontSize: "40px", paddingTop: "50px" }}>On Sale & Discounts</Typography>
+    <Divider color="gray" flexItem/>
 <Grid display="flex" gap="15px"  spacing={3} sx={{paddingTop:'20px',paddingBottom:'20px'}}>
      
         <Grid >
@@ -187,7 +190,11 @@ const CardsRow = () => {
     <Grid display="flex" gap="15px"  spacing={3} sx={{paddingTop:'20px',paddingBottom:'100px'}}>
      
         <Grid >
-          
+        <Link
+                to={`/content`}
+                state={{ from: "onsale", name: randata4.title }}
+                style={{ textDecoration: "none" }}
+              >
           <Card sx={{
               transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
               cursor: 'pointer',
@@ -220,12 +227,16 @@ const CardsRow = () => {
               </Typography>
             </CardContent>
           </Card>
-          {/* </Link>
-          <Outlet /> */}
+           </Link>
+         
         </Grid>
 
         <Grid>
-          
+        <Link
+                to={`/content`}
+                state={{ from: "onsale", name: randata5.title }}
+                style={{ textDecoration: "none" }}
+              >
           <Card sx={{
               transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
               cursor: 'pointer',
@@ -258,13 +269,17 @@ const CardsRow = () => {
               </Typography>
             </CardContent>
           </Card>
-          {/* </Link>
-          <Outlet /> */}
+          </Link>
+        
         </Grid>
 
 
         <Grid >
-          
+        <Link
+                to={`/content`}
+                state={{ from: "onsale", name: randata6.title }}
+                style={{ textDecoration: "none" }}
+              >
           <Card sx={{
               transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
               cursor: 'pointer',
@@ -297,8 +312,8 @@ const CardsRow = () => {
               </Typography>
             </CardContent>
           </Card>
-          {/* </Link>
-          <Outlet /> */}
+           </Link>
+          
         </Grid>
       
     </Grid>
@@ -306,7 +321,7 @@ const CardsRow = () => {
 
     
     
-    </>
+    </div>
   );
   
 };

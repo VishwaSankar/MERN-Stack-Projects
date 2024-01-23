@@ -15,6 +15,7 @@ import {
   Typography,
   Zoom,
 } from "@mui/material";
+import { createContext } from "react";
 import React, { useEffect, useState } from "react";
 import { Carousel, Container, Stack } from "react-bootstrap";
 import { gamesdata1 } from "./Datagames";
@@ -25,8 +26,38 @@ import Button from "@mui/material/Button";
 import axios from "axios";
 import { GroupAdd } from "@mui/icons-material";
 import { randoms } from "../../topsellers";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, Link } from "react-router-dom";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQueryClient } from '@tanstack/react-query'
+import newRequest from "../../utils/newRequest";
 export const Centre1 = () => {
+ 
+  
+  
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["cart"],
+    queryFn: async () => {
+      try {
+        const response = await newRequest.get("/cart/usercart");
+        return response.data; // Return the data from the response
+      } catch (error) {
+        throw new Error("Error fetching cart data"); // Handle errors appropriately
+      }
+    },
+  });
+  
+  const queryClient=useQueryClient()
+  
+  
+  const mutation = useMutation({
+  mutationFn: (handlecart) => {
+      return newRequest.post('/cart', handlecart)
+    },
+    onSuccess:()=>{
+      queryClient.invalidateQueries(["cart"])
+    }
+  })
+
   useEffect(() => {
     // Scroll to the top of the page when the component mounts
     window.scrollTo(0, 0);
@@ -38,7 +69,7 @@ export const Centre1 = () => {
     name: "",
   });
   React.useEffect(() => {
-    console.log("location from top seller", location);
+    // console.log("location from top seller", location);
   }, [location]);
   if (location.state) {
     const { name } = location.state;
@@ -48,7 +79,9 @@ export const Centre1 = () => {
     gamesdata1.map((item, index) => {
       if (gamename === item.title) {
         data = item;
+        // console.log(data);
       }
+      return data;
     });
     let randata1;
     let randata2;
@@ -57,7 +90,7 @@ export const Centre1 = () => {
     let randata5;
     let randata6;
     let randomIndices = [];
-
+    
     function getRandomIndex() {
       let max = gamesdata1.length - 1;
       let min = 0;
@@ -65,7 +98,7 @@ export const Centre1 = () => {
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-
+    
     const getRandomUniqueIndex = () => {
       let index;
       do {
@@ -82,11 +115,34 @@ export const Centre1 = () => {
       (randata5 = gamesdata1[getRandomUniqueIndex()]),
       (randata6 = gamesdata1[getRandomUniqueIndex()]),
     ];
-
-    // console.log(randata1);
+    
+    // console.log(data);
+    
+    
+    let itid=data.id
+    
+    
+    
+    const handlecart=(e)=>{
+      e.preventDefault()
+      const title=data.title;
+      const name=data.name;
+      const price=data.price;
+      const img1=data.img1;
+      const platform=data.platform;
+      const Ratings=data.Ratings;
+      // console.log("title"+title);
+      // console.log("name"+name);
+      mutation.mutate({title,name,price,img1,platform,Ratings})
+    }
+    
+    
+    
+    
+    
     return (
       <>
-        <Box flex={3}>
+        <Box flex={6}>
           <Typography
             sx={{
               fontFamily: "monospace",
@@ -97,7 +153,10 @@ export const Centre1 = () => {
           >
             {data.name}
           </Typography>
-
+          <Typography sx={{fontSize:"15px" ,color:"gray"}}>
+            {data.tag}
+          </Typography>
+            
           <Grid direction="row">
             <Carousel
               style={{
@@ -298,6 +357,12 @@ export const Centre1 = () => {
                     <Typography>: Rs. {data.price} /-</Typography>
                   </Box>
                   <Box sx={{ paddingTop: "10px" }}>
+                  <Link
+                to={`/checkout`}
+                state={{ from: "gamecontent", name: data.title , price: data.price}}
+                style={{ textDecoration: "none" }}
+              >
+                
                     <Button
                       variant="contained"
                       size="medium"
@@ -306,16 +371,26 @@ export const Centre1 = () => {
                     >
                       BUY NOW
                     </Button>
+                    </Link>
                   </Box>
                   <Box sx={{ paddingTop: "10px" }}>
+                  
+                    {/* <Link to={`/cart`}
+                state={{ from: "gamecontent", name:data , }}
+                style={{ textDecoration: "none" }}> */}
                     <Button
                       variant="contained"
                       size="medium"
                       color="error"
                       sx={{ width: "100%" }}
+                     onClick={handlecart}
                     >
                       ADD TO CART
                     </Button>
+                    {/* </Link> */}
+                    
+                    
+                    
                   </Box>
                 </Stack>
               </CardActions>
@@ -545,6 +620,7 @@ export const Centre1 = () => {
             More games like this
           </Typography>
           <Grid display="flex" gap="10px" paddingTop="15px">
+            <Link to="/content"  state={{from:'more like this', name:randata1.title}} style={{textDecoration:"none"}}>
             <Card
               sx={{
                 maxWidth: "300px",
@@ -566,7 +642,8 @@ export const Centre1 = () => {
                 />
               </Tooltip>
             </Card>
-
+            </Link>
+            <Link to="/content"  state={{from:'more like this', name:randata2.title}} style={{textDecoration:"none"}}>  
             <Card
               sx={{
                 maxWidth: "300px",
@@ -588,7 +665,8 @@ export const Centre1 = () => {
                 />
               </Tooltip>
             </Card>
-
+              </Link>
+              <Link to="/content"  state={{from:'more like this', name:randata3.title}} style={{textDecoration:"none"}}>
             <Card
               sx={{
                 maxWidth: "300px",
@@ -610,10 +688,12 @@ export const Centre1 = () => {
                 />
               </Tooltip>
             </Card>
+            </Link>
           </Grid>
           <br></br>
 
-          <Grid display="flex" gap="10px">
+          <Grid display="flex" gap="10px" paddingBottom="50px">
+          <Link to="/content"  state={{from:'more like this', name:randata4.title}} style={{textDecoration:"none"}}>
             <Card
               sx={{
                 maxWidth: "300px",
@@ -635,7 +715,8 @@ export const Centre1 = () => {
                 />
               </Tooltip>
             </Card>
-
+            </Link>
+            <Link to="/content"  state={{from:'more like this', name:randata5.title}} style={{textDecoration:"none"}}>
             <Card
               sx={{
                 maxWidth: "300px",
@@ -657,7 +738,8 @@ export const Centre1 = () => {
                 />
               </Tooltip>
             </Card>
-
+            </Link>
+            <Link to="/content"  state={{from:'more like this', name:randata6.title}} style={{textDecoration:"none"}}>
             <Card
               sx={{
                 maxWidth: "300px",
@@ -679,6 +761,7 @@ export const Centre1 = () => {
                 />
               </Tooltip>
             </Card>
+            </Link>
           </Grid>
         </Box>
       </>

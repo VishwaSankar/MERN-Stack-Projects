@@ -6,12 +6,24 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Box, CardActionArea, Grid, Stack, Tooltip, Zoom } from "@mui/material";
+import {
+  Box,
+  CardActionArea,
+  Divider,
+  Grid,
+  Snackbar,
+  Stack,
+  Tooltip,
+  Zoom,
+} from "@mui/material";
 import { styled } from "@mui/material";
 import Rating from "@mui/material/Rating";
 import axios from "axios";
 import { gamesdata1 } from "./page/gamecontent/Datagames";
 import { Link, Route } from "react-router-dom";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import MuiAlert from "@mui/material/Alert";
 const StyledCard = styled(Card)({
   width: "100%",
   maxWidth: 230,
@@ -21,7 +33,9 @@ const StyledCard = styled(Card)({
   ":hover": { transform: "scale(1.05)" },
   transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
 });
-
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 const StyledCard2 = styled(Card)({
   maxWidth: 230,
   maxHeight: 360,
@@ -78,22 +92,35 @@ export default function Topseller() {
   // }).then((res)=>{console.log(res.data.results[0]);
   // setUrl(res.data.results[0].background_image)
   // })
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   return (
-    <>
-   
+    
+    <div id="topseller"> 
+    <br></br>
       <Typography
         sx={{
           fontFamily: "monospace",
           fontSize: "40px",
-          paddingTop: "20px",
+          paddingTop: "60px",
         }}
       >
         Topsellers
       </Typography>
-      <Grid display="flex" gap="29px" paddingTop="15px" >
-        
-        <Link to={`/content`} state={{from:'topseller', name:randata1.title}} style={{textDecoration:"none"}}>
+      <Divider color="gray" flexItem />
+      <Grid display="flex" gap="29px" paddingTop="15px">
         <Card
           sx={{
             maxWidth: "300px",
@@ -106,27 +133,32 @@ export default function Topseller() {
           }}
         >
           <Tooltip title={randata1.name} TransitionComponent={Zoom}>
-            <CardMedia
-              component="img"
-              height="150px"
-              width="100%"
-              // minWidth="100%"
-              image={randata1.img1}
-            />
-            <CardActions>
-              <Typography
-                sx={{
-                  fontFamily: "monospace",
-                  width: "100%",
-                  fontSize: "20px",
-                  textAlign: "left",
-                  
-                }}
-              >
-                {randata1.name}
-              </Typography>
-            </CardActions>
+            <Link
+              to={`/content`}
+              state={{ from: "topseller", name: randata1.title }}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <CardMedia
+                component="img"
+                height="150px"
+                width="100%"
+                // minWidth="100%"
+                image={randata1.img1}
+              />
 
+              <CardActions>
+                <Typography
+                  sx={{
+                    fontFamily: "monospace",
+                    width: "100%",
+                    fontSize: "20px",
+                    textAlign: "left",
+                  }}
+                >
+                  {randata1.name}
+                </Typography>
+              </CardActions>
+            </Link>
             <CardActions>
               <Box display="flex" gap="20px">
                 <Typography sx={{ fontSize: "15px" }}>
@@ -145,7 +177,12 @@ export default function Topseller() {
               </Box>
             </CardActions>
             <CardActions>
-              <Box display="flex" gap="70px">
+              <Box display="flex" gap="10px">
+              <Link
+                to={`/checkout`}
+                state={{ from: "topseller", name: randata1.title }}
+                style={{ textDecoration: "none" }}
+              >
                 <Button
                   variant="outlined"
                   sx={{ borderRadius: "40px" }}
@@ -154,13 +191,36 @@ export default function Topseller() {
                 >
                   Buy Now
                 </Button>
+                </Link>
+                <Tooltip title="add to favourites">
+                  <FavoriteIcon
+                    onClick={handleClick}
+                    sx={{
+                      transition: "transform 0.3s ease-in-out",
+                      "&:hover": {
+                        transform: "scale(1.2)",
+                      },
+                    }}
+                  />
+                
+                </Tooltip>
               </Box>
             </CardActions>
           </Tooltip>
         </Card>
-        </Link>
-       
-        <Link to={`/content`} state={{from:'topseller', name:randata2.title}} style={{textDecoration:"none"}}>
+        <Snackbar
+                    open={open}
+                    autoHideDuration={6000}
+                    onClose={handleClose}
+                  >
+                    <Alert
+                      onClose={handleClose}
+                      severity="success"
+                      sx={{ width: "100%", height: "50%" }}
+                    >
+                      This game is added to favourites!
+                    </Alert>
+                  </Snackbar>
         <Card
           sx={{
             maxWidth: "300px",
@@ -173,25 +233,31 @@ export default function Topseller() {
           }}
         >
           <Tooltip title={randata2.name} TransitionComponent={Zoom}>
-            <CardMedia
-              component="img"
-              height="150px"
-              width="100%"
-              // minWidth="100%"
-              image={randata2.img1}
-            />
-            <CardActions>
-              <Typography
-                sx={{
-                  fontFamily: "monospace",
-                  width: "100%",
-                  fontSize: "20px",
-                  textAlign: "left",
-                }}
-              >
-                {randata2.name}
-              </Typography>
-            </CardActions>
+            <Link
+              to={`/content`}
+              state={{ from: "topseller", name: randata2.title }}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <CardMedia
+                component="img"
+                height="150px"
+                width="100%"
+                // minWidth="100%"
+                image={randata2.img1}
+              />
+              <CardActions>
+                <Typography
+                  sx={{
+                    fontFamily: "monospace",
+                    width: "100%",
+                    fontSize: "20px",
+                    textAlign: "left",
+                  }}
+                >
+                  {randata2.name}
+                </Typography>
+              </CardActions>
+            </Link>
 
             <CardActions>
               <Box display="flex" gap="20px">
@@ -211,73 +277,12 @@ export default function Topseller() {
               </Box>
             </CardActions>
             <CardActions>
-              <Box display="flex" gap="70px">
-                <Button
-                  variant="outlined"
-                  sx={{ borderRadius: "40px" }}
-                  color="error"
-                  size="small"
-                >
-                  Buy Now
-                </Button>
-              </Box>
-            </CardActions>
-          </Tooltip>
-        </Card>
-        </Link>
-
-        <Link to={`/content`} state={{from:'topseller', name:randata3.title}} style={{textDecoration:"none"}}>
-        <Card
-          sx={{
-            maxWidth: "300px",
-            minWidth: "300px",
-            maxHeight: "310px",
-            cursor: "pointer",
-            ":hover": { transform: "scale(1.04)" },
-            transition:
-              "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-          }}
-        >
-          <Tooltip title={randata3.name} TransitionComponent={Zoom}>
-            <CardMedia
-              component="img"
-              height="150px"
-              width="100%"
-              // minWidth="100%"
-              image={randata3.img1}
-            />
-            <CardActions>
-              <Typography
-                sx={{
-                  fontFamily: "monospace",
-                  width: "100%",
-                  fontSize: "20px",
-                  textAlign: "left",
-                }}
+              <Box display="flex" gap="10px">
+              <Link
+                to={`/checkout`}
+                state={{ from: "topseller", name: randata2.title }}
+                style={{ textDecoration: "none" }}
               >
-                {randata3.name}
-              </Typography>
-            </CardActions>
-
-            <CardActions>
-              <Box display="flex" gap="20px">
-                <Typography sx={{ fontSize: "15px" }}>
-                  Rs. {randata3.price}
-                </Typography>
-                <Box display="flex" sx={{ paddingTop: "2px" }}>
-                  <Rating
-                    size="small"
-                    defaultValue={randata3.Rating}
-                    readOnly
-                  />
-                  <Typography sx={{ fontSize: "15px" }}>
-                    ({randata3.Rating})
-                  </Typography>
-                </Box>
-              </Box>
-            </CardActions>
-            <CardActions>
-              <Box display="flex" gap="70px">
                 <Button
                   variant="outlined"
                   sx={{ borderRadius: "40px" }}
@@ -286,216 +291,383 @@ export default function Topseller() {
                 >
                   Buy Now
                 </Button>
+                </Link>
+                <Tooltip title="add to favourites">
+                  <FavoriteIcon
+                    onClick={handleClick}
+                    sx={{
+                      transition: "transform 0.3s ease-in-out",
+                      "&:hover": {
+                        transform: "scale(1.2)",
+                      },
+                    }}
+                  />
+                  
+                </Tooltip>
               </Box>
             </CardActions>
           </Tooltip>
         </Card>
-        </Link>
-      </Grid>
-
-
-
-     
-     
-     <Grid display="flex" gap="29px" paddingTop="15px">
-     <Link to={`/content`} state={{from:'topseller', name:randata4.title}} style={{textDecoration:"none"}}>
-        <Card
-          sx={{
-            maxWidth: "300px",
-            minWidth: "300px",
-            maxHeight: "310px",
-            cursor: "pointer",
-            ":hover": { transform: "scale(1.04)" },
-            transition:
-              "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-          }}
+      
+      
+          <Card
+            sx={{
+              maxWidth: "300px",
+              minWidth: "300px",
+              maxHeight: "310px",
+              cursor: "pointer",
+              ":hover": { transform: "scale(1.04)" },
+              transition:
+                "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+            }}
+          >
+            <Tooltip title={randata3.name} TransitionComponent={Zoom}>
+            <Link
+          to={`/content`}
+          state={{ from: "topseller", name: randata3.title }}
+          style={{ textDecoration: "none", color:"white" }}
         >
-          <Tooltip title={randata4.name} TransitionComponent={Zoom}>
-            <CardMedia
-              component="img"
-              height="150px"
-              width="100%"
-              // minWidth="100%"
-              image={randata4.img1}
-            />
-            <CardActions>
-              <Typography
-                sx={{
-                  fontFamily: "monospace",
-                  width: "100%",
-                  fontSize: "20px",
-                  textAlign: "left",
-                }}
-              >
-                {randata4.name}
-              </Typography>
-            </CardActions>
-
-            <CardActions>
-              <Box display="flex" gap="20px">
-                <Typography sx={{ fontSize: "15px" }}>
-                  Rs. {randata4.price}
-                </Typography>
-                <Box display="flex" sx={{ paddingTop: "2px" }}>
-                  <Rating
-                    size="small"
-                    defaultValue={randata4.Rating}
-                    readOnly
-                  />
-                  <Typography sx={{ fontSize: "15px" }}>
-                    ({randata4.Rating})
-                  </Typography>
-                </Box>
-              </Box>
-            </CardActions>
-            <CardActions>
-              <Box display="flex" gap="70px">
-                <Button
-                  variant="outlined"
-                  sx={{ borderRadius: "40px" }}
-                  color="error"
-                  size="small"
+              <CardMedia
+                component="img"
+                height="150px"
+                width="100%"
+                // minWidth="100%"
+                image={randata3.img1}
+              />
+              <CardActions>
+                <Typography
+                  sx={{
+                    fontFamily: "monospace",
+                    width: "100%",
+                    fontSize: "20px",
+                    textAlign: "left",
+                  }}
                 >
-                  Buy Now
-                </Button>
-              </Box>
-            </CardActions>
-          </Tooltip>
-        </Card>
-        </Link>
-        <Link to={`/content`} state={{from:'topseller', name:randata5.title}} style={{textDecoration:"none"}}>
-        <Card
-          sx={{
-            maxWidth: "300px",
-            minWidth: "300px",
-            maxHeight: "310px",
-            cursor: "pointer",
-            ":hover": { transform: "scale(1.04)" },
-            transition:
-              "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-          }}
-        >
-          <Tooltip title={randata5.name} TransitionComponent={Zoom}>
-            <CardMedia
-              component="img"
-              height="150px"
-              width="100%"
-              // minWidth="100%"
-              image={randata5.img1}
-            />
-            <CardActions>
-              <Typography
-                sx={{
-                  fontFamily: "monospace",
-                  width: "100%",
-                  fontSize: "20px",
-                  textAlign: "left",
-                }}
-              >
-                {randata5.name}
-              </Typography>
-            </CardActions>
-
-            <CardActions>
-              <Box display="flex" gap="20px">
-                <Typography sx={{ fontSize: "15px" }}>
-                  Rs. {randata5.price}
+                  {randata3.name}
                 </Typography>
-                <Box display="flex" sx={{ paddingTop: "2px" }}>
-                  <Rating
-                    size="small"
-                    defaultValue={randata5.Rating}
-                    readOnly
-                  />
+              </CardActions>
+              </Link>
+              <CardActions>
+                <Box display="flex" gap="20px">
                   <Typography sx={{ fontSize: "15px" }}>
-                    ({randata5.Rating})
+                    Rs. {randata3.price}
                   </Typography>
+                  <Box display="flex" sx={{ paddingTop: "2px" }}>
+                    <Rating
+                      size="small"
+                      defaultValue={randata3.Rating}
+                      readOnly
+                    />
+                    <Typography sx={{ fontSize: "15px" }}>
+                      ({randata3.Rating})
+                    </Typography>
+                  </Box>
                 </Box>
-              </Box>
-            </CardActions>
-            <CardActions>
-              <Box display="flex" gap="70px">
-                <Button
-                  variant="outlined"
-                  sx={{ borderRadius: "40px" }}
-                  color="error"
-                  size="small"
-                >
-                  Buy Now
-                </Button>
-              </Box>
-            </CardActions>
-          </Tooltip>
-        </Card>
-        </Link>
+              </CardActions>
+              
+              <CardActions>
+                <Box display="flex" gap="10px">
+                <Link
+                to={`/checkout`}
+                state={{ from: "topseller", name: randata3.title }}
+                style={{ textDecoration: "none" }}
+              >
+                  <Button
+                    variant="outlined"
+                    sx={{ borderRadius: "40px" }}
+                    color="error"
+                    size="small"
+                  >
+                    Buy Now
+                  </Button>
+                  </Link>
+                  <Tooltip title="add to favourites">
+                    <FavoriteIcon
+                      onClick={handleClick}
+                      sx={{
+                        transition: "transform 0.3s ease-in-out",
+                        "&:hover": {
+                          transform: "scale(1.2)",
+                        },
+                      }}
+                    />
+                   
+                  </Tooltip>
+                </Box>
+              </CardActions>
+            </Tooltip>
+          </Card>
         
-        <Link to={`/content`} state={{from:'topseller', name:randata6.title}} style={{textDecoration:"none"}}>
-
-        <Card
-          sx={{
-            maxWidth: "300px",
-            minWidth: "300px",
-            maxHeight: "310px",
-            cursor: "pointer",
-            ":hover": { transform: "scale(1.04)" },
-            transition:
-              "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-          }}
-        >
-          <Tooltip title={randata6.name} TransitionComponent={Zoom}>
-            <CardMedia
-              component="img"
-              height="150px"
-              width="100%"
-              // minWidth="100%"
-              image={randata6.img1}
-            />
-            <CardActions>
-              <Typography
-                sx={{
-                  fontFamily: "monospace",
-                  width: "100%",
-                  fontSize: "20px",
-                  textAlign: "left",
-                }}
-              >
-                {randata6.name}
-              </Typography>
-            </CardActions>
-
-            <CardActions>
-              <Box display="flex" gap="20px">
-                <Typography sx={{ fontSize: "15px" }}>
-                  Rs. {randata6.price}
-                </Typography>
-                <Box display="flex" sx={{ paddingTop: "2px" }}>
-                  <Rating
-                    size="small"
-                    defaultValue={randata6.Rating}
-                    readOnly
-                  />
-                  <Typography sx={{ fontSize: "15px" }}>
-                    ({randata6.Rating})
-                  </Typography>
-                </Box>
-              </Box>
-            </CardActions>
-            <CardActions>
-              <Box display="flex" gap="70px">
-                <Button
-                  variant="outlined"
-                  sx={{ borderRadius: "40px" }}
-                  color="error"
-                  size="small"
-                >
-                  Buy Now
-                </Button>
-              </Box>
-            </CardActions>
-          </Tooltip>
-        </Card>
-        </Link>
       </Grid>
-    </>
+
+      <Grid display="flex" gap="29px" paddingTop="15px">
+      
+          <Card
+            sx={{
+              maxWidth: "300px",
+              minWidth: "300px",
+              maxHeight: "310px",
+              cursor: "pointer",
+              ":hover": { transform: "scale(1.04)" },
+              transition:
+                "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+            }}
+          >
+            <Tooltip title={randata4.name} TransitionComponent={Zoom}>
+
+            <Link
+          to={`/content`}
+          state={{ from: "topseller", name: randata4.title }}
+          style={{ textDecoration: "none", color:"white" }}
+        >
+              <CardMedia
+                component="img"
+                height="150px"
+                width="100%"
+                // minWidth="100%"
+                image={randata4.img1}
+              />
+              <CardActions>
+                <Typography
+                  sx={{
+                    fontFamily: "monospace",
+                    width: "100%",
+                    fontSize: "20px",
+                    textAlign: "left",
+                  }}
+                >
+                  {randata4.name}
+                </Typography>
+              </CardActions>
+              </Link>
+              <CardActions>
+                <Box display="flex" gap="20px">
+                  <Typography sx={{ fontSize: "15px" }}>
+                    Rs. {randata4.price}
+                  </Typography>
+                  <Box display="flex" sx={{ paddingTop: "2px" }}>
+                    <Rating
+                      size="small"
+                      defaultValue={randata4.Rating}
+                      readOnly
+                    />
+                    <Typography sx={{ fontSize: "15px" }}>
+                      ({randata4.Rating})
+                    </Typography>
+                  </Box>
+                </Box>
+              </CardActions>
+              <CardActions>
+                <Box display="flex" gap="10px">
+                <Link
+                to={`/checkout`}
+                state={{ from: "topseller", name: randata4.title }}
+                style={{ textDecoration: "none" }}
+              >
+                  <Button
+                    variant="outlined"
+                    sx={{ borderRadius: "40px" }}
+                    color="error"
+                    size="small"
+                  >
+                    Buy Now
+                  </Button>
+                  </Link>
+                  <Tooltip title="add to favourites">
+                    <FavoriteIcon
+                      onClick={handleClick}
+                      sx={{
+                        transition: "transform 0.3s ease-in-out",
+                        "&:hover": {
+                          transform: "scale(1.2)",
+                        },
+                      }}
+                    />
+                   
+                  </Tooltip>
+                </Box>
+              </CardActions>
+            </Tooltip>
+          </Card>
+        
+       
+          <Card
+            sx={{
+              maxWidth: "300px",
+              minWidth: "300px",
+              maxHeight: "310px",
+              cursor: "pointer",
+              ":hover": { transform: "scale(1.04)" },
+              transition:
+                "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+            }}
+          >
+            <Tooltip title={randata5.name} TransitionComponent={Zoom}>
+            <Link
+          to={`/content`}
+          state={{ from: "topseller", name: randata5.title }}
+          style={{ textDecoration: "none", color:"white" }}
+        >
+              <CardMedia
+                component="img"
+                height="150px"
+                width="100%"
+                // minWidth="100%"
+                image={randata5.img1}
+              />
+              <CardActions>
+                <Typography
+                  sx={{
+                    fontFamily: "monospace",
+                    width: "100%",
+                    fontSize: "20px",
+                    textAlign: "left",
+                  }}
+                >
+                  {randata5.name}
+                </Typography>
+              </CardActions>
+</Link>
+              <CardActions>
+                <Box display="flex" gap="20px">
+                  <Typography sx={{ fontSize: "15px" }}>
+                    Rs. {randata5.price}
+                  </Typography>
+                  <Box display="flex" sx={{ paddingTop: "2px" }}>
+                    <Rating
+                      size="small"
+                      defaultValue={randata5.Rating}
+                      readOnly
+                    />
+                    <Typography sx={{ fontSize: "15px" }}>
+                      ({randata5.Rating})
+                    </Typography>
+                  </Box>
+                </Box>
+              </CardActions>
+              <CardActions>
+                <Box display="flex" gap="10px">
+                <Link
+                to={`/checkout`}
+                state={{ from: "topseller", name: randata5.title }}
+                style={{ textDecoration: "none" }}
+              >
+                  <Button
+                    variant="outlined"
+                    sx={{ borderRadius: "40px" }}
+                    color="error"
+                    size="small"
+                  >
+                    Buy Now
+                  </Button>
+                  </Link>
+                  <Tooltip title="add to favourites">
+                    <FavoriteIcon
+                      onClick={handleClick}
+                      sx={{
+                        transition: "transform 0.3s ease-in-out",
+                        "&:hover": {
+                          transform: "scale(1.2)",
+                        },
+                      }}
+                    />
+                   
+                  </Tooltip>
+                </Box>
+              </CardActions>
+            </Tooltip>
+          </Card>
+
+
+        
+          <Card
+            sx={{
+              maxWidth: "300px",
+              minWidth: "300px",
+              maxHeight: "310px",
+              cursor: "pointer",
+              ":hover": { transform: "scale(1.04)" },
+              transition:
+                "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+            }}
+          >
+            <Tooltip title={randata6.name} TransitionComponent={Zoom}>
+            <Link
+          to={`/content`}
+          state={{ from: "topseller", name: randata6.title }}
+          style={{ textDecoration: "none", color:"white" }}
+        >
+              <CardMedia
+                component="img"
+                height="150px"
+                width="100%"
+                // minWidth="100%"
+                image={randata6.img1}
+              />
+              <CardActions>
+                <Typography
+                  sx={{
+                    fontFamily: "monospace",
+                    width: "100%",
+                    fontSize: "20px",
+                    textAlign: "left",
+                  }}
+                >
+                  {randata6.name}
+                </Typography>
+              </CardActions>
+</Link>
+              <CardActions>
+                <Box display="flex" gap="20px">
+                  <Typography sx={{ fontSize: "15px" }}>
+                    Rs. {randata6.price}
+                  </Typography>
+                  <Box display="flex" sx={{ paddingTop: "2px" }}>
+                    <Rating
+                      size="small"
+                      defaultValue={randata6.Rating}
+                      readOnly
+                    />
+                    <Typography sx={{ fontSize: "15px" }}>
+                      ({randata6.Rating})
+                    </Typography>
+                  </Box>
+                </Box>
+              </CardActions>
+              <CardActions>
+                <Box display="flex" gap="10px">
+                <Link
+                to={`/checkout`}
+                state={{ from: "topseller", name: randata6.title }}
+                style={{ textDecoration: "none" }}
+              >
+                  <Button
+                    variant="outlined"
+                    sx={{ borderRadius: "40px" }}
+                    color="error"
+                    size="small"
+                  >
+                    Buy Now
+                  </Button>
+                  </Link>
+                  <Tooltip title="add to favourites">
+                    <FavoriteIcon
+                      onClick={handleClick}
+                      sx={{
+                        transition: "transform 0.3s ease-in-out",
+                        "&:hover": {
+                          transform: "scale(1.2)",
+                        },
+                      }}
+                    />
+                  
+                  </Tooltip>
+                </Box>
+              </CardActions>
+            </Tooltip>
+          </Card>
+        
+      </Grid>
+    </div>
   );
 }

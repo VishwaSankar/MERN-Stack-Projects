@@ -4,6 +4,8 @@ import { Container, Stack } from "@mui/material";
 import NestedList from "../../left";
 import { Right } from "../../right";
 import { Centre1 } from "./maingc";
+import StickyFooter from "../../footer";
+
 
 export const Gamecontent = () => {
   return (
@@ -16,6 +18,7 @@ export const Gamecontent = () => {
           <Right />
         </Stack>
       </Container>
+      <StickyFooter/>
     </>
   );
 };
