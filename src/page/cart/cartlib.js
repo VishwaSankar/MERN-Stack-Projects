@@ -1,9 +1,10 @@
-import { Alert, Box, CircularProgress } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { Alert, Badge, Box, CardContent, CircularProgress, Divider } from "@mui/material";
+
+import newRequest from "../../utils/newRequest";
+import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { Centre1 } from "../gamecontent/maingc";
-import { useQuery } from "@tanstack/react-query";
-import newRequest from "../../utils/newRequest";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   Button,
   Card,
@@ -17,10 +18,12 @@ import {
   Typography,
   Zoom,
 } from "@mui/material";
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import React from "react";
+import SentimentVeryDissatisfiedTwoToneIcon from '@mui/icons-material/SentimentVeryDissatisfiedTwoTone';
 const Cartlib = () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
+  
   const { isLoading, error, data } = useQuery({
     queryKey: ["cart"],
     queryFn: async () => {
@@ -32,78 +35,113 @@ const Cartlib = () => {
       }
     },
   });
+  const queryClient = useQueryClient();
 
+  
+  
+  const deleteItem = async (_id) => {
+    try {
+      await newRequest.delete(`/cart/${_id}`);
+      queryClient.invalidateQueries(['cart']);
+    } catch (error) {
+      console.error('Error deleting item', error);
+      // Handle error appropriately
+    }
+  };
+  
+  const handleDelete = async (_id) => {
+    try {
+      await deleteItem(_id);
+      // The query will be automatically invalidated, and UI will be updated
+    } catch (error) {
+      console.error('Error deleting item', error);
+      // Handle error appropriately
+    }
+  };
   return (
-    <div>
-     {isLoading ? (
-  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-    <CircularProgress />
-  </div>
-):error? <Alert severity="error">Kindly login to access these features!</Alert>:(
-      <Box flex={8}>
+    <div >
+    {isLoading ? (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <CircularProgress />
+      </div>
+    ) : error ? (
+      <Alert severity="error">Kindly login to access these features!</Alert>
+    ) :  data.length === 0 ? (
+      
+      <Typography sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '90vh' }} fontFamily="monospace" fontSize="40px" align="center">
+          Your Cart is Empty!!
+      </Typography>
+    ) :(<>
+      <Box paddingLeft="150px">
         <Typography
           sx={{
-            fontFamily: "monospace",
-            fontSize: "35px",
-            paddingTop: "20px",
-            paddingBottom: "-20px",
+            fontFamily: 'monospace',
+            fontSize: '35px',
+            paddingTop: '20px',
+            paddingBottom: '-20px',
           }}
         >
           Your Cart
+        <Divider color="gray" flexItem />
         </Typography>
-
         <Container>
-          <Grid container spacing={1.5} margin="30px">
-            {data.map((cart) => (
-              <Grid item xs={12} sm={2} md={4} lg={3} key={cart._id}>
-                {/* <Link to={`/content`} state={{ from: 'topseller', name: item.title }} style={{ textDecoration: "none" }}> */}
-                <Card
-                  sx={{
-                    width: "100%", // Adjusted width to 100%
-                    cursor: "pointer",
-                    height: "95%",
-                    ":hover": { transform: "scale(1.04)" },
-                    transition:
-                      "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-                  }}
+          <Grid container spacing={2} margin="30px">
+            {data.map((cart, index) => (
+              <Card sx={{ height:"150px", display: 'flex', maxWidth: '510px', minWidth:'510px', margin: '10px',transition: "transform 0.3s ease-in-out",
+              "&:hover": {
+                transform: "scale(1.02)",
+                
+              } }}key={index}>
+                <CardMedia
+                  component="img"
+                  height="auto"
+                  image={cart.img1}
+                  sx={{ width: '310px', objectFit: 'cover' ,}}
+                />
+                <CardContent sx={{display:'flex', flexDirection:"column", justifyContent:"space-between"}}>
+                  <Typography fontSize="20px" fontFamily="monospace" component="div">
+                    {cart.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Rs. {cart.price} /-
+                  </Typography>
+                  <Badge color="error" sx={{ cursor: "pointer", paddingTop:"9px", display:"flex", gap:"25px"  }}>
+                  <Link
+                to={`/checkout`}
+                state={{ from: "topseller", name: cart.name }}
+                style={{ textDecoration: "none" }}
+              >
+                <Button
+                  variant="outlined"
+                  sx={{ borderRadius: "40px" }}
+                  color="error"
+                  size="small"
                 >
-                  <Box>
-                    <Tooltip title="" TransitionComponent={Zoom}>
-                      <CardMedia
-                        component="img"
-                        height="100%"
-                        width="400px"
-                        image={cart.img1}
-                      />
-                      <CardActions>
-                        <Typography
-                          sx={{
-                            fontFamily: "monospace",
-
-                            fontSize: "20px",
-                            textAlign: "left",
-                          }}
-                        >
-                          {cart.title}
-                        </Typography>
-                      </CardActions>
-                      <CardActions>
-                        <Typography sx={{ fontSize: "15px" }}>{cart.price}</Typography>
-                        <Box display="flex" sx={{ paddingTop: "2px" }}>
-                        </Box>
-                      </CardActions>
-                      <CardActions></CardActions>
-                    </Tooltip>
-                  </Box>
-                </Card>
-                {/* </Link> */}
-              </Grid>
+                  Buy Now
+                </Button>
+                </Link>
+                <RemoveCircleOutlineIcon
+                  onClick={() => handleDelete(cart._id)}
+                  color="error"
+                  sx={{
+                    transition: "transform 0.3s ease-in-out",
+                    "&:hover": {
+                      transform: "scale(1.2)",
+                      
+                    },
+                  }}
+                />
+                 
+              </Badge>
+             
+                </CardContent>
+              </Card>
             ))}
           </Grid>
         </Container>
-      </Box>
-      )}
-    </div>
+       </Box> </>
+    )}
+  </div>
   );
 };
 

@@ -1,15 +1,9 @@
-import { TypographyInheritContext } from "@mui/joy/Typography/Typography";
 import {
   Alert,
-  Avatar,
   Box,
   Card,
   Divider,
   Grid,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
   Paper,
   Rating,
   Snackbar,
@@ -17,7 +11,6 @@ import {
   Typography,
   Zoom,
 } from "@mui/material";
-import { createContext } from "react";
 import React, { useEffect, useState } from "react";
 import { Carousel, Container, Stack } from "react-bootstrap";
 import { gamesdata1 } from "./Datagames";
@@ -26,12 +19,12 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import axios from "axios";
-import { GroupAdd } from "@mui/icons-material";
-import { randoms } from "../../topsellers";
+
 import { useParams, useLocation, Link } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useQueryClient } from '@tanstack/react-query'
 import newRequest from "../../utils/newRequest";
+
 export const Centre1 = () => {
   const [open, setOpen] = React.useState(false);
 
@@ -134,7 +127,6 @@ export const Centre1 = () => {
     // console.log(data);
     
     
-    let itid=data.id
     
     
     
@@ -641,6 +633,23 @@ export const Centre1 = () => {
               </CardContent>
             </Card>
           </Grid>
+          <Typography
+            sx={{
+              fontFamily: "monospace",
+              fontSize: "30px",
+              paddingTop: "20px",
+              paddingBottom: "-20px",
+            }}
+          >
+            Gamer Reviews
+          </Typography>
+
+          
+
+
+
+
+
           <Typography
             sx={{
               fontFamily: "monospace",

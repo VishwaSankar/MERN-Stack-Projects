@@ -24,6 +24,9 @@ import { Link, Route } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import MuiAlert from "@mui/material/Alert";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import newRequest from "./utils/newRequest";
+import FavoriteBorderTwoToneIcon from '@mui/icons-material/FavoriteBorderTwoTone';
 const StyledCard = styled(Card)({
   width: "100%",
   maxWidth: 230,
@@ -87,6 +90,29 @@ function random() {
 random();
 // console.log(randata1.title);
 export default function Topseller() {
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["fav"],
+    queryFn: async () => {
+      try {
+        const response = await newRequest.get("/fav/userfav");
+        return response.data; // Return the data from the response
+      } catch (error) {
+        throw new Error("Error fetching cart data"); // Handle errors appropriately
+      }
+    },
+  });
+  
+  const queryClient=useQueryClient()
+  
+  
+  const mutation = useMutation({
+  mutationFn: (handlefav1) => {
+      return newRequest.post('/fav', handlefav1)
+    },
+    onSuccess:()=>{
+      queryClient.invalidateQueries(["fav"])
+    }
+  })
   //   const [url,setUrl]=useState('');
   //   axios.get('https://api.rawg.io/api/games?key=4854226f26e94205bfe48b460e82e39a', {
   // }).then((res)=>{console.log(res.data.results[0]);
@@ -105,6 +131,86 @@ export default function Topseller() {
 
     setOpen(false);
   };
+
+
+  const handlefav1=(e)=>{
+     
+    const title=randata1.title;
+    const name=randata1.name;
+    const price=randata1.price;
+    const img1=randata1.img1;
+    const platform=randata1.platform;
+    const Ratings=randata1.Ratings;
+    // console.log("title"+title);
+    // console.log("name"+name);
+    mutation.mutate({title,name,price,img1,platform,Ratings})
+  }
+
+  const handlefav2=(e)=>{
+     
+    const title=randata2.title;
+    const name=randata2.name;
+    const price=randata2.price;
+    const img1=randata2.img1;
+    const platform=randata2.platform;
+    const Ratings=randata2.Ratings;
+    // console.log("title"+title);
+    // console.log("name"+name);
+    mutation.mutate({title,name,price,img1,platform,Ratings})
+  }
+
+  const handlefav3=(e)=>{
+     
+    const title=randata3.title;
+    const name=randata3.name;
+    const price=randata3.price;
+    const img1=randata3.img1;
+    const platform=randata3.platform;
+    const Ratings=randata3.Ratings;
+    // console.log("title"+title);
+    // console.log("name"+name);
+    mutation.mutate({title,name,price,img1,platform,Ratings})
+  }
+
+  const handlefav4=(e)=>{
+     
+    const title=randata4.title;
+    const name=randata4.name;
+    const price=randata4.price;
+    const img1=randata4.img1;
+    const platform=randata4.platform;
+    const Ratings=randata4.Ratings;
+    // console.log("title"+title);
+    // console.log("name"+name);
+    mutation.mutate({title,name,price,img1,platform,Ratings})
+  }
+
+  const handlefav5=(e)=>{
+     
+    const title=randata5.title;
+    const name=randata5.name;
+    const price=randata5.price;
+    const img1=randata5.img1;
+    const platform=randata5.platform;
+    const Ratings=randata5.Ratings;
+    // console.log("title"+title);
+    // console.log("name"+name);
+    mutation.mutate({title,name,price,img1,platform,Ratings})
+  }
+
+  const handlefav6=(e)=>{
+     
+    const title=randata6.title;
+    const name=randata6.name;
+    const price=randata6.price;
+    const img1=randata6.img1;
+    const platform=randata6.platform;
+    const Ratings=randata6.Ratings;
+    // console.log("title"+title);
+    // console.log("name"+name);
+    mutation.mutate({title,name,price,img1,platform,Ratings})
+  }
+
 
   return (
     
@@ -194,7 +300,10 @@ export default function Topseller() {
                 </Link>
                 <Tooltip title="add to favourites">
                   <FavoriteIcon
-                    onClick={handleClick}
+                    onClick={() => {
+                      handlefav1();
+                      handleClick();
+                    }}
                     sx={{
                       transition: "transform 0.3s ease-in-out",
                       "&:hover": {
@@ -294,7 +403,10 @@ export default function Topseller() {
                 </Link>
                 <Tooltip title="add to favourites">
                   <FavoriteIcon
-                    onClick={handleClick}
+                    onClick={() => {
+                      handlefav2();
+                      handleClick();
+                    }}
                     sx={{
                       transition: "transform 0.3s ease-in-out",
                       "&:hover": {
@@ -383,7 +495,10 @@ export default function Topseller() {
                   </Link>
                   <Tooltip title="add to favourites">
                     <FavoriteIcon
-                      onClick={handleClick}
+                     onClick={() => {
+                      handlefav3();
+                      handleClick();
+                    }}
                       sx={{
                         transition: "transform 0.3s ease-in-out",
                         "&:hover": {
@@ -475,7 +590,10 @@ export default function Topseller() {
                   </Link>
                   <Tooltip title="add to favourites">
                     <FavoriteIcon
-                      onClick={handleClick}
+                     onClick={() => {
+                      handlefav4();
+                      handleClick();
+                    }}
                       sx={{
                         transition: "transform 0.3s ease-in-out",
                         "&:hover": {
@@ -563,7 +681,10 @@ export default function Topseller() {
                   </Link>
                   <Tooltip title="add to favourites">
                     <FavoriteIcon
-                      onClick={handleClick}
+                      onClick={() => {
+                        handlefav5();
+                        handleClick();
+                      }}
                       sx={{
                         transition: "transform 0.3s ease-in-out",
                         "&:hover": {
@@ -652,7 +773,10 @@ export default function Topseller() {
                   </Link>
                   <Tooltip title="add to favourites">
                     <FavoriteIcon
-                      onClick={handleClick}
+                      onClick={() => {
+                        handlefav6();
+                        handleClick();
+                      }}
                       sx={{
                         transition: "transform 0.3s ease-in-out",
                         "&:hover": {

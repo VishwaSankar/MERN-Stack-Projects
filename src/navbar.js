@@ -15,6 +15,8 @@ import SportsEsportsSharpIcon from "@mui/icons-material/SportsEsportsSharp";
 import { Link, useNavigate } from "react-router-dom";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import newRequest from "./utils/newRequest";
+import { useQuery } from "@tanstack/react-query";
+import { FavoriteBorder, HearingTwoTone } from "@mui/icons-material";
 
 export const Navbar = () => {
   const StyledToolbar = styled(Toolbar)({
@@ -33,6 +35,29 @@ export const Navbar = () => {
     }
     window.location.reload();
   }
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["cart"],
+    queryFn: async () => {
+      try {
+        const response = await newRequest.get("/cart/usercart");
+        return response.data; // Return the data from the response
+      } catch (error) {
+        throw new Error("Error fetching cart data"); // Handle errors appropriately
+      }
+    },
+  });
+  const { data: favData } = useQuery({
+    queryKey: ["fav"],
+    queryFn: async () => {
+      try {
+        const response = await newRequest.get("/fav/userfav");
+        return response.data; // Return the data from the response
+      } catch (error) {
+        throw new Error("Error fetching favorites data"); // Handle errors appropriately
+      }
+    },
+  });
+
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   return (
     <AppBar position="sticky">
@@ -92,7 +117,7 @@ export const Navbar = () => {
 
           <Tooltip title="Cart">
             <Link to="/cart">
-              <Badge badgeContent={6} color="error" sx={{ cursor: "pointer" }}>
+              <Badge badgeContent={data?.length} color="error" sx={{ cursor: "pointer" }}>
                 <ShoppingCartCheckoutIcon
                   color="white"
                   sx={{
@@ -120,6 +145,22 @@ export const Navbar = () => {
                 />
               </Link>
             </Badge>
+          </Tooltip>
+          <Tooltip title="Favourites">
+            <Link to="/fav">
+              <Badge badgeContent={favData?.length} color="error" sx={{ cursor: "pointer" }}>
+                <FavoriteBorder
+                  color="white"
+                  sx={{
+                    transition: "transform 0.3s ease-in-out",
+                    "&:hover": {
+                      transform: "scale(1.2)",
+                    
+                    },
+                  }}
+                />
+              </Badge>
+            </Link>
           </Tooltip>
 
           <AccountMenu />

@@ -81,7 +81,7 @@ export default function Checkout() {
 
     // console.log(name);
     let gamename = name;
-    let gameprice=price
+    let gameprice=price;
 
   
   return (

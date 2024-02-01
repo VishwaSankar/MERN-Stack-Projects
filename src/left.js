@@ -30,6 +30,8 @@ export default function NestedList() {
 
  
   return (
+    <>
+    
     <Box flex={3} paddingTop="60px">
       <Paper >
        
@@ -165,5 +167,6 @@ export default function NestedList() {
        
       </List>
     </Box>
+    </>
   );
 }

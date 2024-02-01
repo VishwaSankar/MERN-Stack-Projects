@@ -36,6 +36,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import FavMain from "./favlayout.js";
 // function App(){
 //   return (<>
   
@@ -123,7 +124,7 @@ function App() {
        },
        {
         path:'/fav',
-        element:<Favourites/>
+        element:<FavMain/>
        },
        {
         path:'/library',
