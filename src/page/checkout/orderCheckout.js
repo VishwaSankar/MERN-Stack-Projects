@@ -1,6 +1,5 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,9 +12,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 import PaymentForm from './PaymentForm';
-import Review from './Review';
 import AddressForm from './Addressform';
-import { Link, useLocation } from 'react-router-dom';
+import { Link,  } from 'react-router-dom';
+import Review from './orderReview';
+import OrderAddressForm from './orderAddressform';
 
 
 function Copyright() {
@@ -42,37 +42,19 @@ function Copyright() {
 
 
 
-export default function Checkout() {
+export default function Checkoutorder() {
   const [isDataSaved, setIsDataSaved] = React.useState(false);
   const [activeStep, setActiveStep] = React.useState(0);
-  const location = useLocation();
-  //location state
-  const [locationState, setLocationState] = React.useState({
-    from: "",
-    name: "",
-  });
-  React.useEffect(() => {
-    console.log("location from top seller", location);
-  }, [location]);
   
-  const gamename=location.state.name;
-  console.log("testtttt" +gamename)
-  if (location.state) {
-    const { name } = location.state;
-    const { price } = location.state;
-
-    // console.log(name);
-    let gamename = name;
-    let gameprice=price;
   const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 function getStepContent(step) {
   
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <OrderAddressForm/>;
     case 1:
-      return <PaymentForm />;
+      return <PaymentForm/>;
     case 2:
       return <Review/>;
     default:
@@ -98,9 +80,6 @@ function getStepContent(step) {
       <CssBaseline />
       
        
-          <Typography variant="h5" color="inherit" textAlign="center" paddingTop="30px" fontFamily="monospace">
-            Selected Game: {gamename}
-          </Typography>
         
       
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
@@ -121,7 +100,7 @@ function getStepContent(step) {
                 Thank you for your order.
               </Typography>
               <Typography variant="subtitle1" fontFamily="monospace">
-                Your ordered game is {gamename}.
+              
                 Your order number is #2001539. We have emailed your order
                 confirmation, and will send you an update when your order has
                 shipped.
@@ -152,5 +131,4 @@ function getStepContent(step) {
       </Container>
     </React.Fragment>
   );
-                return gamename;}
-}
+                }

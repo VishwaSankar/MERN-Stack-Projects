@@ -1,3 +1,4 @@
+ 
   import * as React from 'react';
   import Typography from '@mui/material/Typography';
   import List from '@mui/material/List';
@@ -56,18 +57,17 @@ import { useLocation } from 'react-router-dom';
     //     }
     //   })
 
-    const filteredOrders = data.filter((order) => order.gamedetails.gamename === gamename);
-    
+
 
     return (
       <React.Fragment>
         <Typography variant="h6" gutterBottom>
           Order summary
         </Typography>
-        {filteredOrders.map((order, index) => (
-          <List disablePadding key={index}>
-            <ListItem key={order.gamedetails.gamename === gamename} sx={{ py: 1, px: 0 }}>
-              <ListItemText primary={order.gamedetails.gamename} secondary={order.gamename} />
+        {data.map((order, index) => (
+        <List disablePadding key={index}>
+            <ListItem key={order?.gamedetails?.gamename} sx={{ py: 1, px: 0 }}>
+              <ListItemText primary={order?.gamedetails?.gamename} secondary={order?.gamename} />
               <Typography variant="body2">{order.gameprice}</Typography>
             </ListItem>
         
@@ -77,8 +77,7 @@ import { useLocation } from 'react-router-dom';
           
           </ListItem>
         <Grid container spacing={2}>
-        {filteredOrders.map((order, index) => (
-
+          {data.map((order, index) => (
           <Grid item xs={12} sm={6}>
             <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
               Shipping
@@ -112,36 +111,3 @@ import { useLocation } from 'react-router-dom';
       </React.Fragment>
     );
   }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 

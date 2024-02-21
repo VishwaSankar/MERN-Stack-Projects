@@ -3,8 +3,8 @@ import { Box, Container, Stack } from '@mui/material'
 import React from 'react'
 import NestedList from '../../left'
 import { Right } from '../../right'
-import { Centre } from '../../centre'
 import Cartlib from './cartlib'
+import StickyFooter from '../../footer'
 
 
 const Cart = () => {
@@ -19,6 +19,7 @@ const Cart = () => {
           </Stack>
           
         </Container>
+        
   </>
   )
 }

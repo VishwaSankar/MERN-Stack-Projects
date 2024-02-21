@@ -7,6 +7,7 @@ import Checkbox from '@mui/material/Checkbox';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
 import { useLocation } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 export default function AddressForm() {
   const location = useLocation();
@@ -39,8 +40,12 @@ export default function AddressForm() {
       return newRequest.post('/order/neworder', handleship)
     },
     onSuccess:()=>{
+     
+     
       queryClient.invalidateQueries(["order"])
+       
     }
+
   })
 
   if (location.state) {
@@ -166,7 +171,9 @@ export default function AddressForm() {
             label="Use this address for payment details"
           />
         </Grid> */}
-        <button type="submit">Submit</button>
+          <Grid item xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
+            <Button variant='outlined' type="submit">Save</Button>
+          </Grid>
       </Grid>
       </form>
     </React.Fragment>

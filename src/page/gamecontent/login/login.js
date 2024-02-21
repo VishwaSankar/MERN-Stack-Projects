@@ -12,11 +12,12 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import SportsEsportsSharpIcon from "@mui/icons-material/SportsEsportsSharp";
 import { useState } from "react";
-import { LinkOff, WindowSharp } from "@mui/icons-material";
+import { LinkOff, Visibility, VisibilityOff, WindowSharp } from "@mui/icons-material";
 
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Link, useNavigate} from "react-router-dom";
 import newRequest from "../../../utils/newRequest";
+import { IconButton, InputAdornment } from "@mui/material";
 
 function Copyright(props) {
   return (
@@ -48,7 +49,11 @@ export default function SignIn() {
  const [username,setUsername]=useState("")
  const [password,setPassword]=useState("")
  const [error,setError]=useState(null)
+ const [showPassword, setShowPassword] = useState(false);
 
+ const handleTogglePasswordVisibility = () => {
+  setShowPassword(!showPassword);
+};
 
  const Navigate=useNavigate()
  const handlesubmit=async(e)=>{
@@ -100,13 +105,23 @@ catch(err){
             onChange={e=>setUsername(e.target.value)}
             autoFocus
           /> */}
-          <TextField
+           <TextField
             margin="normal"
             required
             fullWidth
             placeholder="password"
-            onChange={e=>setPassword(e.target.value)}
+            type={showPassword ? 'text' : 'password'}
+            onChange={(e) => setPassword(e.target.value)}
             autoComplete="current-password"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={handleTogglePasswordVisibility}>
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}

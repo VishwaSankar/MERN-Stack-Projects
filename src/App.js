@@ -37,6 +37,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import FavMain from "./favlayout.js";
+import Checkoutorder from "./page/checkout/orderCheckout.js";
 // function App(){
 //   return (<>
   
@@ -113,6 +114,10 @@ function App() {
         {
           path:'/checkout',
           element:<Checkout/>
+        },
+        {
+          path:'/checkoutorder',
+          element:<Checkoutorder/>
         },
        {
         path:'/cart',
