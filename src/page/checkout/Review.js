@@ -7,6 +7,8 @@
   import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
   import newRequest from '../../utils/newRequest';
 import { useLocation } from 'react-router-dom';
+import { gamesdata1 } from '../gamecontent/Datagames';
+import { Divider } from '@mui/material';
 
 
   const payments = [
@@ -40,7 +42,11 @@ import { useLocation } from 'react-router-dom';
   }, [location]);
   
   const gamename=location.state.name;
+  const gameprice=location.state.price;
+  
+
   console.log("testtttt" +gamename)
+  console.log("test"+gameprice);
   if (location.state) {
     const { name } = location.state;
     const { price } = location.state;
@@ -68,13 +74,14 @@ import { useLocation } from 'react-router-dom';
           <List disablePadding key={index}>
             <ListItem key={order.gamedetails.gamename === gamename} sx={{ py: 1, px: 0 }}>
               <ListItemText primary={order.gamedetails.gamename} secondary={order.gamename} />
-              <Typography variant="body2">{order.gameprice}</Typography>
+              <Typography variant="body2">Rs. {gameprice}/-</Typography>
             </ListItem>
+            <Divider color="white"/>
         
         </List> ))}
           <ListItem sx={{ py: 1, px: 0 }}>
             <ListItemText primary="Total" />
-          
+            Rs. {gameprice} /-
           </ListItem>
         <Grid container spacing={2}>
         {filteredOrders.map((order, index) => (

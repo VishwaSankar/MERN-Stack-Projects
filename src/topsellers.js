@@ -90,29 +90,62 @@ function random() {
 random();
 // console.log(randata1.title);
 export default function Topseller() {
-  const { isLoading, error, data } = useQuery({
-    queryKey: ["fav"],
+  const queryClient = useQueryClient();
+   const {
+    isLoading: favLoading,
+    error: favError,
+    data: favData,
+  } = useQuery({
+    queryKey: ['fav'],
     queryFn: async () => {
       try {
-        const response = await newRequest.get("/fav/userfav");
-        return response.data; // Return the data from the response
+        const response = await newRequest.get('/fav/userfav');
+        return response.data;
       } catch (error) {
-        throw new Error("Error fetching cart data"); // Handle errors appropriately
+        throw new Error('Error fetching fav data');
       }
     },
   });
-  
-  const queryClient=useQueryClient()
-  
-  
-  const mutation = useMutation({
-  mutationFn: (handlefav1) => {
-      return newRequest.post('/fav', handlefav1)
+
+  const favMutation = useMutation({
+    mutationFn: (handlefav1) => {
+      return newRequest.post('/fav', handlefav1);
     },
-    onSuccess:()=>{
-      queryClient.invalidateQueries(["fav"])
-    }
-  })
+    onSuccess: () => {
+      queryClient.invalidateQueries(['fav']);
+    },
+  });
+
+  // Cart Query and Mutation
+  const {
+    isLoading: cartLoading,
+    error: cartError,
+    data: cartData,
+  } = useQuery({
+    queryKey: ['cart'],
+    queryFn: async () => {
+      try {
+        const response = await newRequest.get('/cart/usercart');
+        return response.data;
+      } catch (error) {
+        throw new Error('Error fetching cart data');
+      }
+    },
+  });
+
+  const cartMutation = useMutation({
+    mutationFn: (handlecart) => {
+      return newRequest.post('/cart', handlecart);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(['cart']);
+    },
+  });
+
+
+
+
+
   //   const [url,setUrl]=useState('');
   //   axios.get('https://api.rawg.io/api/games?key=4854226f26e94205bfe48b460e82e39a', {
   // }).then((res)=>{console.log(res.data.results[0]);
@@ -131,6 +164,17 @@ export default function Topseller() {
 
     setOpen(false);
   };
+  const handleClick1 = () => {
+    setOpen(true);
+  };
+
+  const handleClose1 = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
 
 
   const handlefav1=(e)=>{
@@ -143,7 +187,7 @@ export default function Topseller() {
     const Ratings=randata1.Ratings;
     // console.log("title"+title);
     // console.log("name"+name);
-    mutation.mutate({title,name,price,img1,platform,Ratings})
+    favMutation.mutate({title,name,price,img1,platform,Ratings})
   }
 
   const handlefav2=(e)=>{
@@ -156,7 +200,7 @@ export default function Topseller() {
     const Ratings=randata2.Ratings;
     // console.log("title"+title);
     // console.log("name"+name);
-    mutation.mutate({title,name,price,img1,platform,Ratings})
+    favMutation.mutate({title,name,price,img1,platform,Ratings})
   }
 
   const handlefav3=(e)=>{
@@ -169,7 +213,7 @@ export default function Topseller() {
     const Ratings=randata3.Ratings;
     // console.log("title"+title);
     // console.log("name"+name);
-    mutation.mutate({title,name,price,img1,platform,Ratings})
+    favMutation.mutate({title,name,price,img1,platform,Ratings})
   }
 
   const handlefav4=(e)=>{
@@ -182,7 +226,7 @@ export default function Topseller() {
     const Ratings=randata4.Ratings;
     // console.log("title"+title);
     // console.log("name"+name);
-    mutation.mutate({title,name,price,img1,platform,Ratings})
+    favMutation.mutate({title,name,price,img1,platform,Ratings})
   }
 
   const handlefav5=(e)=>{
@@ -195,7 +239,7 @@ export default function Topseller() {
     const Ratings=randata5.Ratings;
     // console.log("title"+title);
     // console.log("name"+name);
-    mutation.mutate({title,name,price,img1,platform,Ratings})
+    favMutation.mutate({title,name,price,img1,platform,Ratings})
   }
 
   const handlefav6=(e)=>{
@@ -208,9 +252,93 @@ export default function Topseller() {
     const Ratings=randata6.Ratings;
     // console.log("title"+title);
     // console.log("name"+name);
-    mutation.mutate({title,name,price,img1,platform,Ratings})
+    favMutation.mutate({title,name,price,img1,platform,Ratings})
   }
 
+  //handlecart mutation
+  const handlecart1=(e)=>{
+     
+    const title=randata1.title;
+    const name=randata1.name;
+    const price=randata1.price;
+    const img1=randata1.img1;
+    const platform=randata1.platform;
+    const Ratings=randata1.Ratings;
+    // console.log("title"+title);
+    // console.log("name"+name);
+    cartMutation.mutate({title,name,price,img1,platform,Ratings})
+  }
+
+  const handlecart2=(e)=>{
+     
+    const title=randata2.title;
+    const name=randata2.name;
+    const price=randata2.price;
+    const img1=randata2.img1;
+    const platform=randata2.platform;
+    const Ratings=randata2.Ratings;
+    // console.log("title"+title);
+    // console.log("name"+name);
+    cartMutation.mutate({title,name,price,img1,platform,Ratings})
+  }
+  
+
+  const handlecart3=(e)=>{
+     
+    const title=randata3.title;
+    const name=randata3.name;
+    const price=randata3.price;
+    const img1=randata3.img1;
+    const platform=randata3.platform;
+    const Ratings=randata3.Ratings;
+    // console.log("title"+title);
+    // console.log("name"+name);
+    cartMutation.mutate({title,name,price,img1,platform,Ratings})
+  }
+  
+
+  const handlecart4=(e)=>{
+     
+    const title=randata4.title;
+    const name=randata4.name;
+    const price=randata4.price;
+    const img1=randata4.img1;
+    const platform=randata4.platform;
+    const Ratings=randata4.Ratings;
+    // console.log("title"+title);
+    // console.log("name"+name);
+    cartMutation.mutate({title,name,price,img1,platform,Ratings})
+  }
+  
+
+  const handlecart5=(e)=>{
+     
+    const title=randata5.title;
+    const name=randata5.name;
+    const price=randata5.price;
+    const img1=randata5.img1;
+    const platform=randata5.platform;
+    const Ratings=randata5.Ratings;
+    // console.log("title"+title);
+    // console.log("name"+name);
+    cartMutation.mutate({title,name,price,img1,platform,Ratings})
+  }
+  
+
+  const handlecart6=(e)=>{
+     
+    const title=randata6.title;
+    const name=randata6.name;
+    const price=randata6.price;
+    const img1=randata6.img1;
+    const platform=randata6.platform;
+    const Ratings=randata6.Ratings;
+    // console.log("title"+title);
+    // console.log("name"+name);
+    cartMutation.mutate({title,name,price,img1,platform,Ratings})
+  }
+  
+  
 
   return (
     
@@ -241,7 +369,7 @@ export default function Topseller() {
           <Tooltip title={randata1.name} TransitionComponent={Zoom}>
             <Link
               to={`/content`}
-              state={{ from: "topseller", name: randata1.title }}
+              state={{ from: "topseller", name: randata1.title , }}
               style={{ textDecoration: "none", color: "white" }}
             >
               <CardMedia
@@ -286,7 +414,7 @@ export default function Topseller() {
               <Box display="flex" gap="10px">
               <Link
                 to={`/checkout`}
-                state={{ from: "topseller", name: randata1.title }}
+                state={{ from: "topseller", name: randata1.title, price:randata1.price }}
                 style={{ textDecoration: "none" }}
               >
                 <Button
@@ -298,6 +426,21 @@ export default function Topseller() {
                   Buy Now
                 </Button>
                 </Link>
+                <Button
+                onClick={() => {
+                  handlecart1();
+                  handleClick1();
+                }}
+                  variant="outlined"
+                  sx={{ borderRadius: "40px" }}
+                  color="error"
+                  size="small"
+                >
+                  Add to Cart
+                </Button>
+
+             
+
                 <Tooltip title="add to favourites">
                   <FavoriteIcon
                     onClick={() => {
@@ -313,6 +456,7 @@ export default function Topseller() {
                   />
                 
                 </Tooltip>
+             
               </Box>
             </CardActions>
           </Tooltip>
@@ -327,9 +471,22 @@ export default function Topseller() {
                       severity="success"
                       sx={{ width: "100%", height: "50%" }}
                     >
-                      This game is added to favourites!
+                      This game is successfully Added!!
                     </Alert>
                   </Snackbar>
+                  {/* <Snackbar
+                    open={open}
+                    autoHideDuration={6000}
+                    onClose={handleClose1}
+                  >
+                    <Alert
+                      onClose={handleClose1}
+                      severity="success"
+                      sx={{ width: "100%", height: "50%" }}
+                    >
+                      This has been added to your Cart!!
+                    </Alert>
+                  </Snackbar> */}
         <Card
           sx={{
             maxWidth: "300px",
@@ -389,7 +546,7 @@ export default function Topseller() {
               <Box display="flex" gap="10px">
               <Link
                 to={`/checkout`}
-                state={{ from: "topseller", name: randata2.title }}
+                state={{ from: "topseller", name: randata2.title, price:randata2.price }}
                 style={{ textDecoration: "none" }}
               >
                 <Button
@@ -401,6 +558,18 @@ export default function Topseller() {
                   Buy Now
                 </Button>
                 </Link>
+                <Button
+                onClick={() => {
+                  handlecart2();
+                  handleClick1();
+                }}
+                  variant="outlined"
+                  sx={{ borderRadius: "40px" }}
+                  color="error"
+                  size="small"
+                >
+                  Add to Cart
+                </Button>
                 <Tooltip title="add to favourites">
                   <FavoriteIcon
                     onClick={() => {
@@ -481,7 +650,7 @@ export default function Topseller() {
                 <Box display="flex" gap="10px">
                 <Link
                 to={`/checkout`}
-                state={{ from: "topseller", name: randata3.title }}
+                state={{ from: "topseller", name: randata3.title ,price:randata3.price  }}
                 style={{ textDecoration: "none" }}
               >
                   <Button
@@ -493,6 +662,18 @@ export default function Topseller() {
                     Buy Now
                   </Button>
                   </Link>
+                  <Button
+                onClick={() => {
+                  handlecart3();
+                  handleClick1();
+                }}
+                  variant="outlined"
+                  sx={{ borderRadius: "40px" }}
+                  color="error"
+                  size="small"
+                >
+                  Add to Cart
+                </Button>
                   <Tooltip title="add to favourites">
                     <FavoriteIcon
                      onClick={() => {
@@ -576,7 +757,7 @@ export default function Topseller() {
                 <Box display="flex" gap="10px">
                 <Link
                 to={`/checkout`}
-                state={{ from: "topseller", name: randata4.title }}
+                state={{ from: "topseller", name: randata4.title, price:randata4.price  }}
                 style={{ textDecoration: "none" }}
               >
                   <Button
@@ -588,6 +769,18 @@ export default function Topseller() {
                     Buy Now
                   </Button>
                   </Link>
+                  <Button
+                onClick={() => {
+                  handlecart4();
+                  handleClick1();
+                }}
+                  variant="outlined"
+                  sx={{ borderRadius: "40px" }}
+                  color="error"
+                  size="small"
+                >
+                  Add to Cart
+                </Button>
                   <Tooltip title="add to favourites">
                     <FavoriteIcon
                      onClick={() => {
@@ -667,7 +860,7 @@ export default function Topseller() {
                 <Box display="flex" gap="10px">
                 <Link
                 to={`/checkout`}
-                state={{ from: "topseller", name: randata5.title }}
+                state={{ from: "topseller", name: randata5.title, price:randata5.price  }}
                 style={{ textDecoration: "none" }}
               >
                   <Button
@@ -679,6 +872,18 @@ export default function Topseller() {
                     Buy Now
                   </Button>
                   </Link>
+                  <Button
+                onClick={() => {
+                  handlecart5();
+                  handleClick1();
+                }}
+                  variant="outlined"
+                  sx={{ borderRadius: "40px" }}
+                  color="error"
+                  size="small"
+                >
+                  Add to Cart
+                </Button>
                   <Tooltip title="add to favourites">
                     <FavoriteIcon
                       onClick={() => {
@@ -759,7 +964,7 @@ export default function Topseller() {
                 <Box display="flex" gap="10px">
                 <Link
                 to={`/checkout`}
-                state={{ from: "topseller", name: randata6.title }}
+                state={{ from: "topseller", name: randata6.title, price:randata6.price  }}
                 style={{ textDecoration: "none" }}
               >
                   <Button
@@ -771,6 +976,18 @@ export default function Topseller() {
                     Buy Now
                   </Button>
                   </Link>
+                  <Button
+                onClick={() => {
+                  handlecart6();
+                  handleClick1();
+                }}
+                  variant="outlined"
+                  sx={{ borderRadius: "40px" }}
+                  color="error"
+                  size="small"
+                >
+                  Add to Cart
+                </Button>
                   <Tooltip title="add to favourites">
                     <FavoriteIcon
                       onClick={() => {

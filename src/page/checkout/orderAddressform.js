@@ -43,16 +43,20 @@ export default function AddressForm() {
   const handleship = (e) => {
     e.preventDefault();
   
-    // Check if cartData is available and not empty
+    // // Check if cartData is available and not empty
     if (cartData && cartData.length > 0) {
-      // Extract gamename and gameprice from the first item in cartData
-      const { name: gamename, price: gameprice } = cartData[0];
-  
+      // Extract gamenames and gameprices from all items in cartData
+      const gameDetails = cartData.reduce((accumulator, item) => {
+        accumulator.gamename[item.name] = true; // Using true as a placeholder value
+        accumulator.gameprice[item.name] = item.price;
+        return accumulator;
+      }, { gamename: {}, gameprice: {} });
+    
       // Gather form data
       const formData = {
         gamedetails: {
-          gamename: gamename,
-          gameprice: gameprice,
+          gamename: gameDetails.gamename,
+          gameprice: gameDetails.gameprice,
         },
         shippingAddress: {
           Firstname: e.target.Firstname.value,
@@ -157,16 +161,19 @@ export default function AddressForm() {
               variant="standard"
             />
           </Grid>
-
-          {/* Loop over cart items and display them */}
+          
+          <div name="showing cart names">
+             {/* Loop over cart items and display them */}
           {cartData && cartData.map((cartItem) => (
             <React.Fragment key={cartItem._id}>
-              <Typography variant="h6" gutterBottom>
+              {/* <Typography variant="h6" gutterBottom>
                 {cartItem.name}
-              </Typography>
+              </Typography> */}
               {/* Additional details for each cart item can be displayed here */}
             </React.Fragment>
           ))}
+          </div>
+         
 
           <Grid item xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
             <Button variant='outlined' type="submit">

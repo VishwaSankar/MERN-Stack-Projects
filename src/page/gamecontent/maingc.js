@@ -154,9 +154,10 @@ export const Centre1 = () => {
           <Typography
             sx={{
               fontFamily: "monospace",
-              fontSize: "35px",
+              fontSize: "40px",
               paddingTop: "20px",
               paddingBottom: "-20px",
+            
             }}
           >
             {data.name}
@@ -352,17 +353,12 @@ export const Centre1 = () => {
                     </Typography>
                     <Typography>: {data.platform}</Typography>
                   </Box>
-                  <Box
-                    sx={{ display: "flex", gap: "105px", paddingLeft: "10px" }}
-                  >
-                    <Typography sx={{ paddingLeft: "2px" }}> Genre</Typography>
-                    <Typography>: {data.Genre}</Typography>
-                  </Box>
+                  
                   <Box
                     sx={{ display: "flex", gap: "111px", paddingLeft: "10px" }}
                   >
                     <Typography sx={{ paddingLeft: "2px" }}> Price</Typography>
-                    <Typography>: Rs. {data.price} /-</Typography>
+                    <Typography>: Rs. {data.price}/-</Typography>
                   </Box>
                   <Box sx={{ paddingTop: "10px" }}>
                   <Link

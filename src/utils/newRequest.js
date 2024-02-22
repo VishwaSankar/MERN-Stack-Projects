@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const newRequest = axios.create({
-    baseURL:"https://backends-k9wj.onrender.com", withCredentials:true
+    baseURL:"http://localhost:5000/", withCredentials:true
 })
 
 export default newRequest
