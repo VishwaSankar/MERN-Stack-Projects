@@ -64,7 +64,7 @@ export default function Checkout() {
     // console.log(name);
     let gamename = name;
     let gameprice=price;
-  const steps = ['Shipping address', 'Payment details', 'Review your order'];
+  const steps = ['Shipping address & Payment Details' , 'Review your order'];
 
 function getStepContent(step) {
   
@@ -72,9 +72,9 @@ function getStepContent(step) {
     case 0:
       return <AddressForm />;
     case 1:
-      return <PaymentForm />;
-    case 2:
       return <Review/>;
+    
+      
     default:
       throw new Error('Unknown step');
   }

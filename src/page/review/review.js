@@ -10,6 +10,7 @@ import {
   Snackbar,
   SnackbarContent,
   Alert,
+  Divider,
 } from '@mui/material';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
@@ -119,8 +120,9 @@ const Review = (props) => {
             paddingBottom: '-20px',
           }}
         >
-          Critic Reviews
+          Global Reviews
         </Typography>
+        <Divider color="white"/>
         <AllReviewCard gamename={props.gamename}/>
       </Box>
 

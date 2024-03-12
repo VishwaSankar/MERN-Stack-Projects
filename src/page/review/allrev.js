@@ -14,9 +14,12 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
-import { Alert, CircularProgress } from "@mui/material";
+import { Alert, CircularProgress, Divider, Button } from "@mui/material";
+import DeleteForeverSharpIcon from '@mui/icons-material/DeleteForeverSharp';
+import { Delete } from "@mui/icons-material";
+import EditIcon from '@mui/icons-material/Edit';
 
-// ... (imports remain the same)
+const MAX_DISPLAY_LENGTH = 100; // Adjust this value based on your preference
 
 export default function AllReviewCard(props) {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -32,11 +35,19 @@ export default function AllReviewCard(props) {
       }
     },
   });
+
+  const [expandedReviewId, setExpandedReviewId] = React.useState(null);
+
   function formatDateTime(dateTimeString) {
     const options = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' };
     const formattedDateTime = new Date(dateTimeString).toLocaleDateString(undefined, options);
     return formattedDateTime;
   }
+
+  const handleExpandClick = (reviewId) => {
+    setExpandedReviewId((prevId) => (prevId === reviewId ? null : reviewId));
+  };
+
   return (
     <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
       {isLoading ? (
@@ -70,25 +81,39 @@ export default function AllReviewCard(props) {
       ) : (
         <>
           {data.map((review) => (
-            <Card key={review._id} sx={{ maxWidth: 345, margin: "8px" }}>
+            <Card key={review._id} sx={{ maxWidth: "350px", margin: "8px" }}>
               <CardHeader
                 avatar={
                   <Avatar src={review.img} sx={{ bgcolor: red[500] }} />
                 }
                 title={review.username}
                 subheader={formatDateTime(review.createdAt)}
-                />
+              />
+              <Divider color="gray" />
               <CardContent>
                 <Typography variant="body2" color="white">
-                  {review.desc}
+                  {expandedReviewId === review._id ? review.desc : review.desc.slice(0, MAX_DISPLAY_LENGTH)}
+                  {review.desc.length > MAX_DISPLAY_LENGTH && expandedReviewId !== review._id && '...'}
                 </Typography>
               </CardContent>
+              {review.desc.length > MAX_DISPLAY_LENGTH && (
+                <CardActions disableSpacing>
+                  <Button onClick={() => handleExpandClick(review._id)}>
+                    {expandedReviewId === review._id ? "View Less" : "View More"}
+                  </Button>
+                </CardActions>
+              )}
+              <Collapse in={expandedReviewId === review._id} timeout="auto" unmountOnExit>
+                <CardContent sx={{margin:"-10px"}}>
+                  
+                </CardContent>
+              </Collapse>
               <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
+                <IconButton aria-label="delete-review">
+                  <DeleteForeverSharpIcon color="error" />
                 </IconButton>
                 <IconButton aria-label="share">
-                  <ShareIcon />
+                  <EditIcon color="primary" />
                 </IconButton>
               </CardActions>
             </Card>

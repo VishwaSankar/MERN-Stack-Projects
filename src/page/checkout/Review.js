@@ -97,24 +97,25 @@ import { Divider } from '@mui/material';
 
           </Grid>
             ))}
-          
-          <Grid item container direction="column" xs={12} sm={6}>
-            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-              Payment details
-            </Typography>
-            <Grid container>
-              {payments.map((payment) => (
-                <React.Fragment key={payment.name}>
-                  <Grid item xs={6}>
-                    <Typography gutterBottom>{payment.name}</Typography>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Typography gutterBottom>{payment.detail}</Typography>
-                  </Grid>
-                </React.Fragment>
-              ))}
-            </Grid>
-          </Grid>
+          <Divider color="white"/>
+          {filteredOrders.map((order, index) => (
+  <Grid item xs={12} sm={6} key={index}>
+    <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+      Payment details
+    </Typography>
+    {console.log('Order:', order)}
+    {console.log('Payment Details:', order?.paymentDetails)}
+    <Grid container>
+      <Grid item xs={12} sm={6}>
+       
+        <Typography gutterBottom>Card Name: {order?.paymentDetails?.cardName} </Typography>
+        <Typography gutterBottom>Card Number:{order?.paymentDetails?.cardNumber}</Typography>
+        <Typography gutterBottom>Expire Date: {order?.paymentDetails?.expirationDate}</Typography>
+        <Typography gutterBottom>CVV: {order?.paymentDetails?.cvv}</Typography>
+      </Grid>
+    </Grid>
+  </Grid>
+))}
         </Grid>
       </React.Fragment>
     );

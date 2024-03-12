@@ -128,7 +128,10 @@ export default function NestedList() {
           <ListItemIcon>
             <SellIcon />
           </ListItemIcon>
-          <ListItemText primary="Sell your games" />
+          <Link to={"/cart"} state={{}}  style={{textDecoration:"none" , color: 'white'}} >
+
+          <ListItemText primary="Your Cart" />
+          </Link>
         </ListItemButton>
         <Divider color="gray"/>
         {/* <ListItemButton>
